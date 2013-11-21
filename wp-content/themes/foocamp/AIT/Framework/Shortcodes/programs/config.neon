@@ -1,0 +1,9 @@
+title: Program Shortcodes
+type: button
+
+shortcodeName: get_program
+popupOptions:
+	day:
+		label: Day ID
+		type: text
+		class: get_program_day

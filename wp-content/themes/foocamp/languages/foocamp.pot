@@ -1,0 +1,290 @@
+# Copyright (C) 2013 AitThemes.com http://ait-themes.com
+# This file is distributed under the same license as the AIT Foocamp WordPress Theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Foocamp 1.9\n"
+"Report-Msgid-Bugs-To: http://support.ait-themes.com/categories/wp-foocamp\n"
+"POT-Creation-Date: 2013-08-09T09:37:10+02:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: \Templates\archive.php:18
+msgid "Daily Archives:"
+msgstr ""
+
+#: \Templates\archive.php:20
+msgid "Monthly Archives:"
+msgstr ""
+
+#: \Templates\archive.php:22
+msgid "Yearly Archives:"
+msgstr ""
+
+#: \Templates\archive.php:24
+msgid "Blog Archives"
+msgstr ""
+
+#: \Templates\archive.php:27 \Templates\author.php:20
+#: \Templates\category.php:18 \Templates\index.php:21
+#: \Templates\page-fullwidth.php:17 \Templates\page.php:17
+#: \Templates\snippets\nothing-found.php:4 \Templates\snippets\posted-on.php:3
+#: \Templates\tag.php:17 \Templates\woocommerce.php:13
+msgid "You are here:"
+msgstr ""
+
+#: \Templates\author.php:15
+msgid "Author Archives:"
+msgstr ""
+
+#: \Templates\author.php:29
+msgctxt "about author"
+msgid "About"
+msgstr ""
+
+#: \Templates\category.php:16
+msgid "Category Archives: "
+msgstr ""
+
+#: \Templates\header.php:82
+msgid "Main Menu"
+msgstr ""
+
+#: \Templates\single.php:43
+msgctxt "about author"
+msgid ""
+msgstr ""
+
+#: \Templates\snippets\comments-link.php:7
+msgid "Leave a reply"
+msgstr ""
+
+#: \Templates\snippets\comments-link.php:13
+msgctxt "one reply"
+msgid "Reply"
+msgstr ""
+
+#: \Templates\snippets\comments-link.php:15
+msgctxt "more replies"
+msgid "Replies"
+msgstr ""
+
+#: \Templates\snippets\comments-pagination.php:4
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: \Templates\snippets\comments-pagination.php:5
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: \Templates\snippets\content-nav.php:3
+msgid "%s Newer posts"
+msgstr ""
+
+#: \Templates\snippets\content-nav.php:4
+msgid "%s Older posts"
+msgstr ""
+
+#: \Templates\snippets\nothing-found.php:3
+msgid "Nothing Found"
+msgstr ""
+
+#: \Templates\snippets\nothing-found.php:8
+msgid "Apologies, but no results were found for the request. Perhaps searching will help find a related post."
+msgstr ""
+
+#: \Templates\snippets\post-nav.php:2
+msgid "%s Previous"
+msgstr ""
+
+#: \Templates\snippets\post-nav.php:3
+msgid "%s Next"
+msgstr ""
+
+#: \Templates\snippets\search-form.php:4
+msgid "Search"
+msgstr ""
+
+#: \Templates\snippets\search-form.php:5
+msgid "search..."
+msgstr ""
+
+#: \Templates\tag.php:15
+msgid "Tag Archives:"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Home"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Page %s"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Edit This"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Edit comment"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Category: \"%s\""
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Posts tagged &quot;%s&quot;"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Author: &quot;%s&quot;"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Search results for &quot;%s&quot;"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Prev"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Next"
+msgstr ""
+
+#: AIT\Framework\WpLatte\WpLatteFunctions.php:
+msgid "Error 404"
+msgstr ""
+
+#: functions.php:33
+msgid "Sections order for this page"
+msgstr ""
+
+#: functions.php:41
+msgid "Options for slider"
+msgstr ""
+
+#: functions.php:49
+msgid "Options for countdown"
+msgstr ""
+
+#: functions.php:57
+msgid "Options for static text"
+msgstr ""
+
+#: functions.php:119
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:120
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:153
+msgid "Homepage Widgets Area"
+msgstr ""
+
+#: functions.php:154
+msgid "Subpages Widgets Area"
+msgstr ""
+
+#: functions.php:155
+msgid "Blog Widgets Area"
+msgstr ""
+
+#: functions.php:156
+msgid "Post Widgets Area"
+msgstr ""
+
+#: functions.php:157
+msgid "Footer Widgets Area"
+msgstr ""
+
+#: functions.php:161
+msgid "Shop Sidebar"
+msgstr ""
+
+#: ait-faq-widget.php:23
+msgid "Display faq"
+msgstr ""
+
+#: ait-faq-widget.php:27
+msgid "Theme &rarr; FAQ"
+msgstr ""
+
+#: ait-faq-widget.php:86
+msgid "Widget Title"
+msgstr ""
+
+#: ait-faq-widget.php:91
+msgid "Faq category"
+msgstr ""
+
+#: ait-flickr-widget.php:17
+msgid "Display flickr images"
+msgstr ""
+
+#: ait-flickr-widget.php:21
+msgid "Theme &rarr; Flickr"
+msgstr ""
+
+#: ait-flickr-widget.php:131 ait-post-widget.php:180 ait-submenu-widget.php:96
+msgid "Title"
+msgstr ""
+
+#: ait-flickr-widget.php:136
+msgid "RSS"
+msgstr ""
+
+#: ait-flickr-widget.php:141 ait-post-widget.php:184
+msgid "Number of posts"
+msgstr ""
+
+#: ait-flickr-widget.php:146 ait-post-widget.php:206
+msgid "Thumbnail width"
+msgstr ""
+
+#: ait-flickr-widget.php:151 ait-post-widget.php:211
+msgid "Thumbnail height"
+msgstr ""
+
+#: ait-post-widget.php:18
+msgid "Customize displaying posts"
+msgstr ""
+
+#: ait-post-widget.php:22
+msgid "Theme &rarr; Posts"
+msgstr ""
+
+#: ait-post-widget.php:123
+msgid "read more"
+msgstr ""
+
+#: ait-post-widget.php:189
+msgid "Excerpt length"
+msgstr ""
+
+#: ait-post-widget.php:196
+msgid "Show read more"
+msgstr ""
+
+#: ait-post-widget.php:202
+msgid "Show thumbnails"
+msgstr ""
+
+#: ait-post-widget.php:216
+msgid "Thumbnail position"
+msgstr ""
+
+#: ait-submenu-widget.php:15
+msgid "Show submenu"
+msgstr ""
+
+#: ait-submenu-widget.php:19
+msgid "Theme &rarr; Submenu"
+msgstr ""

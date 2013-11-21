@@ -1,0 +1,47 @@
+overrideGlobal:
+	label: Use these settings
+	type: checkbox
+	default:
+		'yes':
+			label: 'Yes'
+countdownEnable:
+	label: Show
+	type: radio
+	default:
+		true:
+			label: 'Yes'
+			checked: true
+		false:
+			label: 'No'
+countdownStartDate:
+	label: 'Start date'
+	type: text
+	default: '1 March 2013 12:00:00'
+countdownEndDate:
+	label: 'End date'
+	type: text
+	default: '24 December 2013 08:00:00'
+daysHolder:
+	label: 'Days Translation'
+	type: text
+	default: 'DAYS'
+hoursHolder:
+	label: 'Hours Translation'
+	type: text
+	default: 'HOURS'
+minutesHolder:
+	label: 'Minutes Translation'
+	type: text
+	default: 'MINUTES'
+secondsHolder:
+	label: 'Seconds Translation'
+	type: text
+	default: 'SECONDS'
+countdownColor:
+	label: Countdown color
+	type: colorpicker
+	default: '#20BAE2'
+countdownText:
+	label: 'End date'
+	type: textarea
+	default: 'YES! We Launched. :)'

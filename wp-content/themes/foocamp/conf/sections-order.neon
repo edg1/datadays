@@ -1,0 +1,12 @@
+overrideGlobal:
+	label: Use this order
+	type: checkbox
+	default:
+		'yes':
+			label: 'Yes'
+sectionsOrder:
+	type: order
+	default:
+		sectionA: Section A - Countdown
+		sectionB: Section B - Static Text
+		sectionC: Section C - Content

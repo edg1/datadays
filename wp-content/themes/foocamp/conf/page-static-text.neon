@@ -1,0 +1,23 @@
+overrideGlobal:
+	label: Use these settings
+	type: checkbox
+	default:
+		'yes':
+			label: 'Yes'
+staticTextEnable:
+	label: Show
+	type: radio
+	default:
+		true:
+			label: 'Yes'
+			checked: true
+		false:
+			label: 'No'
+staticText:
+	label: ''
+	type: textarea
+	default: '<span class="block">Meet the people / share knowledge / learn new things</span><strong>We’re looking forward to see you!</strong>'
+staticTextColor:
+	label: Font Color
+	type: colorpicker
+	default: '#b463ac'

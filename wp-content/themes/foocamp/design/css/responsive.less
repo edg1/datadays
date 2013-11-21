@@ -1,0 +1,243 @@
+/* ======================================
+ 
+    Responsive Stylesheet
+ 
+========================================= */
+
+
+@media all and (max-width: 768px) {
+
+	/* ======================================================= */
+	/* LAYOUT SETTINGS                  					   */
+	/* ======================================================= */
+
+	@siteWidth                      = 700px;
+	@contentWidth                   = @siteWidth;
+
+	#content, .onecolumn #content   { width: @siteWidth; float: none; }
+	.wrapper 					    { width: @siteWidth; }
+
+	.page-header .logo 				 { float: none; }
+	.page-header .logo img           { margin: 0 auto; }
+	.page-header .main-navigation 	 { float: none; }
+	.page-header .quick-info 	     { float: none; text-align: center; }
+	.wpml-switch  					 { display: inline-block; float: none; vertical-align: top; }
+	.social-icons                    { display: inline-block; text-align: center; float: none; }
+	.social-icons > li               { display: inline-block; float: none; }
+	.page-header .menu-content 		 { float: none; }
+	.page-header .mainmenu 			 { float: none; }
+	.page-header .mainmenu > ul      { text-align: center; }
+	.page-header .mainmenu > ul > li { display: inline-block; float: none; }
+
+	.page-sidebar 		             { float: none; width: auto; }
+
+	.widget-container  			     { margin-right: 60px !important; width: 320px !important; float: none; display: inline-block; vertical-align: top; }
+	.widget-container:nth-child(2n)  { margin-right: 0 !important; }
+	.page-footer .footer-text 		 { text-align: center; float: none; }
+	.page-footer .footer-menu 	 	 { float: none; text-align: center; }
+	.page-footer .footer-menu li     { display: inline-block; float: none; }
+
+	.countdown-section .countdown-time-value { margin-bottom: 30px; }
+
+	.ait-teams .single-member { width: 340px !important; } 
+
+	.slider-alternative, .slider-alternative img { display: block;}
+
+	/*----- Columns shortcode -----*/
+	@onecolumn                      = @siteWidth;
+	@onecolumnRightMargin           = 20px;
+
+	@withSidebar                    = @contentWidth;
+	@withSidebarRightMargin         = 20px;
+
+	@insideTabs                     = @contentWidth - 40px;
+	@insideTabsRightMargin          = 24px;
+
+	@onecolumnInsideTabs            = @siteWidth - 40px;
+	@onecolumnInsideTabsRightMargin = 24px;
+
+	@oneHalf                        = (@withSidebar - @withSidebarRightMargin) / 2;
+	@oneThird                       = (@withSidebar - (2 * @withSidebarRightMargin)) / 3;
+	@twoThird                       = (2 * @oneThird) + @withSidebarRightMargin;
+	@oneFourth                      = (@withSidebar - (3 * @withSidebarRightMargin)) / 4;
+	@threeFourth                    = (3 * @oneFourth) +  (2 * @withSidebarRightMargin);
+
+	@onecolumnOneHalf               = (@onecolumn - @onecolumnRightMargin) / 2;
+	@onecolumnOneThird              = (@onecolumn - (2 * @onecolumnRightMargin)) / 3;
+	@onecolumnTwoThird              = (2 * @onecolumnOneThird) + @onecolumnRightMargin;
+	@onecolumnOneFourth             = (@onecolumn - (3 * @onecolumnRightMargin)) / 4;
+	@onecolumnThreeFourth           = (3 * @onecolumnOneFourth) +  (2 * @onecolumnRightMargin);
+
+	@insideTabsOneHalf              = (@insideTabs - @insideTabsRightMargin) / 2;
+	@insideTabsOneThird             = (@insideTabs - (2 * @insideTabsRightMargin)) / 3;
+	@insideTabsTwoThird             = (2 * @insideTabsOneThird) + @insideTabsRightMargin;
+	@insideTabsOneFourth            = (@insideTabs - (3 * @insideTabsRightMargin)) / 4;
+	@insideTabsThreeFourth          = (3 * @insideTabsOneFourth) +  (2 * @insideTabsRightMargin);
+
+	@onecolumnInsideTabsOneHalf     = (@onecolumnInsideTabs - @onecolumnInsideTabsRightMargin) / 2;
+	@onecolumnInsideTabsOneThird    = (@onecolumnInsideTabs - (2 * @onecolumnInsideTabsRightMargin)) / 3;
+	@onecolumnInsideTabsTwoThird    = (2 * @onecolumnInsideTabsOneThird) + @onecolumnInsideTabsRightMargin;
+	@onecolumnInsideTabsOneFourth   = (@onecolumnInsideTabs - (3 * @onecolumnInsideTabsRightMargin)) / 4;
+	@onecolumnInsideTabsThreeFourth = (3 * @onecolumnInsideTabsOneFourth) +  (2 * @onecolumnInsideTabsRightMargin);
+
+	.sc-column {
+	  float: left; padding: 10px 0px; margin-right: @withSidebarRightMargin;
+	}
+
+	.onecolumn .sc-column {
+	  margin-right: @onecolumnRightMargin;
+	}
+
+	.ui-widget-content .sc-column {
+	  margin-right: @insideTabsRightMargin;
+	}
+
+	.onecolumn .ui-widget-content .sc-column {
+	  margin-right: @onecolumnInsideTabsRightMargin;
+	}
+
+	.sc-column.sc-column-last,
+	.onecolumn .ui-widget-content .sc-column-last {
+	  margin-right: 0; }
+
+	.sc-column.one-full { width: @withSidebar; }
+	.sc-column.one-half, .sc-column.one-half-last { width: @oneHalf; }
+	.sc-column.one-third, .sc-column.one-third-last { width: @oneThird; }
+	.sc-column.two-third, .sc-column.two-third-last { width: @twoThird; }
+	.sc-column.one-fourth, .sc-column.one-fourth-last { width: @oneFourth; }
+	.sc-column.three-fourth, .sc-column.three-fourth-last { width: @threeFourth; }
+
+	.onecolumn .sc-column.one-full { width: @onecolumn; }
+	.onecolumn .sc-column.one-half, .onecolumn .sc-column.one-half-last { width: @onecolumnOneHalf; }
+	.onecolumn .sc-column.one-third, .onecolumn .sc-column.one-third-last { width: @onecolumnOneThird; }
+	.onecolumn .sc-column.two-third, .onecolumn .sc-column.two-third-last { width: @onecolumnTwoThird; }
+	.onecolumn .sc-column.one-fourth, .onecolumn .sc-column.one-fourth-last { width: @onecolumnOneFourth; }
+	.onecolumn .sc-column.three-fourth, .onecolumn .sc-column.three-fourth-last { width: @onecolumnThreeFourth; }
+
+	.ui-widget-content .sc-column.one-full { width: @insideTabs; }
+	.ui-widget-content .sc-column.one-half, .ui-widget-content .sc-column.one-half-last { width: @insideTabsOneHalf; }
+	.ui-widget-content .sc-column.one-third, .ui-widget-content .sc-column.one-third-last { width: @insideTabsOneThird; }
+	.ui-widget-content .sc-column.two-third, .ui-widget-content .sc-column.two-third-last { width: @insideTabsTwoThird; }
+	.ui-widget-content .sc-column.one-fourth, .ui-widget-content .sc-column.one-fourth-last { width: @insideTabsOneFourth; }
+	.ui-widget-content .sc-column.three-fourth, .ui-widget-content .sc-column.three-fourth-last { width: @insideTabsThreeFourth; }
+
+	.onecolumn .ui-widget-content .sc-column.one-full { width: @onecolumnInsideTabs; }
+	.onecolumn .ui-widget-content .sc-column.one-half, .onecolumn .ui-widget-content .sc-column.one-half-last { width: @onecolumnInsideTabsOneHalf; }
+	.onecolumn .ui-widget-content .sc-column.one-third, .onecolumn .ui-widget-content .sc-column.one-third-last { width: @onecolumnInsideTabsOneThird; }
+	.onecolumn .ui-widget-content .sc-column.two-third, .onecolumn .ui-widget-content .sc-column.two-third-last { width: @onecolumnInsideTabsTwoThird; }
+	.onecolumn .ui-widget-content .sc-column.one-fourth, .onecolumn .ui-widget-content .sc-column.one-fourth-last { width: @onecolumnInsideTabsOneFourth; }
+	.onecolumn .ui-widget-content .sc-column.three-fourth, .onecolumn .ui-widget-content .sc-column.three-fourth-last { width: @onecolumnInsideTabsThreeFourth; }
+
+}
+
+@media all and (max-width: 497px) {
+
+	/* ======================================================= */
+	/* LAYOUT SETTINGS                  					   */
+	/* ======================================================= */
+
+	@siteWidth                      = 450px;
+	@contentWidth                   = @siteWidth;	
+
+	#content, .onecolumn #content   				{ width: @siteWidth; float: none; }
+	.wrapper 					    				{ width: @siteWidth; }
+	.sc-column 										{ width: 100% !important; margin-right: 0 !important; }
+	.ait-program .program-column      				{ width: 50% !important; }
+	.ait-program .program-column.full 				{ width: 100% !important; }
+	.ait-program .program-column:nth-child(3n) 		{ padding: 0 2px 0 0; }
+	.day-program .clearfix 						{ display: none; }
+	.day-program .responsive-clearfix 			{ .clearfix; }
+	.widget-container 								{ margin: 0 65px 40px !important;  }
+	.gridgallery 									{ width: auto !important; }
+	.ait-teams .single-member 						{ width: auto !important; margin-right: 0; float: none; .clearfix;  }
+	.countdown-section .countdown-time-value:nth-child(2n) { margin-right: 0; }
+
+	/* Menu */
+	.menu-container 								{ text-align: center; }
+
+
+	.responsive-menu      	     					{ display: inline; }
+	.menu-content		     						{ display: inline-block; .clearfix; }
+	.menubut.bigbut			   						{ display: inline-block; padding: 7px 18px 10px; margin: 20px 0; background: #fff; .border-radius(15px);
+													  font-size: 24px; font-weight: normal; text-decoration: none; color: @decorColor; font-family: @fancyFont;
+													  line-height: 34px; text-align: center; }
+	.mainmenu 				   						{ position: relative; width: auto;padding:15px 0;text-align:center; }
+	.menu-content:hover .mainmenu	 				{ display: block; }
+	.menu-content .mainmenu    						{ display: none; width: 350px; position: absolute; top: 230px; left: 50%; margin-left: -175px; padding-bottom: 20px;
+													  z-index: 9999; }
+	.mainmenu ul li			 						{ display: block; float: none; height: auto; margin: 0; padding: 0;
+													  font-size: 18px; line-height: 26px; width: auto !important; border-top: 1px solid #EEEEEE;}
+	.mainmenu ul li ul, .mainmenu ul li ul ul  		{ border-width: 0; box-shadow: none; padding: 0; width: auto; }
+	.mainmenu ul 									{ display: block !important; margin: 0 !important; padding: 25px 10px 10px; position: static !important; text-align: center;
+													  background:#FFFFFF; .border-radius(5px); box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); }
+	.mainmenu ul li a					 			{ display: block; text-decoration: none; font-size:18px; color: @generalFontColor; }
+	.mainmenu ul ul, .mainmenu ul ul ul	            { background: #fff; }
+	.mainmenu li li:last-child, .mainmenu li li  	{ box-shadow:none !important; }	
+	.mainmenu > ul > li                             { display: block !important; min-height: auto; font-size: 24px; }
+	.mainmenu > ul > li > a, 
+	.mainmenu > .menu > ul > li > a 				{ color:#333 !important; font-family: @fancyFontBold !important; }
+	.mainmenu > ul li a                             { .transition(color 0.2s) }
+	.mainmenu li li a                               { background: transparent !important; }
+	.mainmenu > ul li a:hover, 
+	.mainmenu > .menu ul li a:hover  				{ color: @decorColor !important; background: transparent !important; }
+	.mainmenu > ul > li.current_page_item > a, 
+	.mainmenu > ul > li.current_page_parent > a, 
+	.mainmenu > ul > li.current_page_ancestor > a, 
+	.mainmenu > .menu > ul > li.current_page_item > a, 
+	.mainmenu > .menu > ul > li.current_page_parent > a, 
+	.mainmenu > .menu > ul > li.current_page_ancestor > a { .border-radius(3px); color: @menusFontColor !important; }
+	
+	.entry-title 									{ text-align: center; }
+	.hentry .entry-thumbnail 						{ margin: 10px 65px 20px; float: none; }
+	.single-post-section .entry-meta .meta-info 	{ border: none; }
+	.entry-meta 									{ float: none; } 
+
+	.ait-faqs .faq-header .q,
+	.ait-faqs .faq-header .faq-title 				{ font-size: 20px; }
+
+	/* ======================================================= */
+	/* FONT SIZING                       					   */
+	/* ======================================================= */
+
+	.mainpage 										{ font-size: 18px; line-height: normal; }
+	.mainpage, .mainpage p, .mainpage small			{ font-size: 18px; line-height: normal; }
+
+	.logo > span 									{ font-size: 18px; }
+
+	ul.style1 li, ul.style2 li, ul.style3 li, 
+	ul.style4 li, ul.style5 li, ul.style6 li 		{ background-position: 0 2px; }
+
+	.entry-content									{ font-size: 18px; line-height: 28px; }
+	.entry-content .frame p 						{ font-size: 16px; line-height: 23px; }
+
+	.entry-title .breadcrumbs 						{ font-size: 18px;	 }
+
+	.sc-accordion .ac-title a 						{ font-size: 16px; padding-left: 16px; }
+	.widget_posts h3								{ font-size: 16px; }
+	.widget-text p 									{ line-height: 28px; }
+	.widget_calendar td, .widget_calendar th 		{ font-size: 17px; }
+	.widget_archive li a,
+	.widget_categories li a,
+	.widget_links li a,
+	.widget_meta li a,
+	.widget_nav_menu li a,
+	.widget_pages li a,
+	.widget_recent_entries li a,
+	.widget_rss li a,
+	.widget_recent_comments li,
+	.widget_submenu li a 							{ font-size: 18px; }
+	.hentry .date a, 
+	.breadcrumbs a,
+	.hentry .share-link a,
+	.page-footer li a,
+	.page-footer .footer-text,
+	.widget_twitter p.twitter-message
+	.language-button .language-title,
+	.hentry .edit-link a							{ font-size: 16px; }	
+	.widget_posts .postitem p small 				{ font-size: 17px; }
+	.hentry .entry-meta a                           { font-size: 14px; }
+	.widget_tag_cloud a                             { font-size: 16px !important; }
+	.widget_faq ul li span strong,
+	.widget_posts h3 a                              { font-family: @fancyFontBold; }
+
+}

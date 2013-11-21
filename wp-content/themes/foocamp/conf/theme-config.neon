@@ -1,0 +1,441 @@
+generalOptions:
+	title: General Settings
+	menu-title: General Settings
+	tabs:
+		general:
+			title:     General Setting
+			tab-title: General
+			options:
+				Header: section
+				#################
+				logo_img:
+					label: Logo image
+					type: image-url
+					default: 'design/img/foocamp-logo.png'
+					skinable: false
+				topBarContact:
+					label: Tagline
+					type: text
+					default: Great Wordpress Conference Theme
+				Comments: section
+				#################
+				closeComments:
+					label: Closeable comments
+					type: checkbox
+					default:
+						enable:
+							label: 'Yes'
+							checked: true
+				defaultPosition:
+					label: "Comments position"
+					type: select
+					default:
+						opened:
+							label: "Opened"
+							checked: true
+						closed:
+							label: "Closed"
+				Footer: section
+				#################
+				footer_text:
+					label: Footer text
+					type: wysiwyg
+					default: '&copy; 2013 Copyright by <strong>AIT</strong>. Lorem ipsum dolor sit amet...'
+				Google Codes: section
+				#################
+				ga_code:
+					label: Google Analytics Tracking Code
+					type: text
+		sections:
+			title: Sections
+			tab-title: Sections
+			options:
+				Global sections order: section
+				#######################
+				sectionsOrder:
+					type: order
+					meta: '_ait_sections_order'
+					default:
+						sectionA: Section A - Countdown
+						sectionB: Section B - Static Text
+						sectionC: Section C - Content
+				Slider - Global Settings : section
+				#################
+				sliderEnable:
+					label: Show
+					type: radio
+					default:
+						true:
+							label: 'Yes'
+						false:
+							label: 'No'
+							checked: true
+				sliderAliases:
+					label: Revolution slider
+					type: dropdown-slider-aliases
+					default: default-slider
+				sliderAlternativeMobile:
+					label: Mobile Slider alternative
+					type: image-url
+					default: 'design/img/mobile-bg.png'
+				sliderAlternativeTablet:
+					label: Tablet Slider alternative
+					type: image-url
+					default: 'design/img/ipad-bg.png'
+				Circular Countdown - Global Settings : section
+				#################
+				countdownEnable:
+					label: Show
+					type: radio
+					default:
+						true:
+							label: 'Yes'
+						false:
+							label: 'No'
+							checked: true
+				countdownStartDate:
+					label: 'Start date'
+					type: text
+					default: '1 March 2013 12:00:00'
+				countdownEndDate:
+					label: 'End date'
+					type: text
+					default: '24 December 2013 08:00:00'
+				daysHolder:
+					label: 'Days Translation'
+					type: text
+					default: 'DAYS'
+				hoursHolder:
+					label: 'Hours Translation'
+					type: text
+					default: 'HOURS'
+				minutesHolder:
+					label: 'Minutes Translation'
+					type: text
+					default: 'MINUTES'
+				secondsHolder:
+					label: 'Seconds Translation'
+					type: text
+					default: 'SECONDS'
+				countdownColor:
+					label: Countdown color
+					type: colorpicker
+					default: '#20BAE2'
+				countdownText:
+					label: 'End date'
+					type: textarea
+					default: 'YES! We Launched. :)'
+				Static Text - Global Settings : section
+				#################
+				staticTextEnable:
+					label: Show
+					type: radio
+					default:
+						true:
+							label: 'Yes'
+						false:
+							label: 'No'
+							checked: true
+				staticText:
+					label: ''
+					type: textarea
+					default: '<span class="block">Meet the people / share knowledge / learn new things</span><strong>We’re looking forward to see you!</strong>'
+				staticTextColor:
+					label: Font Color
+					type: colorpicker
+					default: '#b463ac'
+		footer:
+			title:     Footer Settings
+			tab-title: Footer Widgets
+			less: true
+			options:
+				Footer - Widgets : section
+				#################
+				widthFirst:
+					label: "First Widget Width"
+					type: text
+					skinable: true
+					default: 320px
+				widthSecond:
+					label: "Second Widget Width"
+					type: text
+					skinable: true
+					default: 300px
+				widthThird:
+					label: "Third Widget Width"
+					type: text
+					skinable: true
+					default: 220px
+				widthFourth:
+					label: "Fourth Widget Width"
+					type: text
+					skinable: true
+					default: 257px
+				widthFifth:
+					label: "Fifth Widget Width"
+					type: text
+					skinable: true
+					default: 202px
+				widthSixth:
+					label: "Sixth Widget Width"
+					type: text
+					skinable: true
+					default: 202px
+		socialIcons:
+			title: Social icons
+			tab-title: Social icons
+			options:
+				"Icons": section-title
+				displayIcons:
+					label: Display social icons
+					type: checkbox
+					default:
+						display:
+							label: "Yes"
+							checked: true
+				icons:
+#					label: Social Icons
+					label-counter: 'Icon #'
+					type: clone
+					default: [
+						[
+							iconUrl: {
+								label: Icon URL,
+								type: image-url,
+								default: 'design/img/ico/fb.png'
+							},
+							title: {
+								label: Title,
+								type: text,
+								default: Facebook
+							},
+							link: {
+								label: Link,
+								type: text,
+								default: 'http://www.facebook.com/AitThemes'
+							},
+						],
+						[
+							iconUrl: {
+								label: Icon URL,
+								type: image-url,
+								default: 'design/img/ico/tw.png'
+							},
+							title: {
+								label: Title,
+								type: text,
+								default: Twitter
+							},
+							link: {
+								label: Link,
+								type: text,
+								default: 'http://www.twitter.com/AitThemes'
+							},
+						],
+						[
+							iconUrl: {
+								label: Icon URL,
+								type: image-url,
+								default: 'design/img/ico/dr.png'
+							},
+							title: {
+								label: Title,
+								type: text,
+								default: Follow us on Dribbble
+							},
+							link: {
+								label: Link,
+								type: text,
+								default: 'http://dribbble.com/aitthemes'
+							},
+						],
+						[
+							iconUrl: {
+								label: Icon URL,
+								type: image-url,
+								default: 'design/img/ico/in.png'
+							},
+							title: {
+								label: Title,
+								type: text,
+								default: LinkedIn
+							},
+							link: {
+								label: Link,
+								type: text,
+								default: 'http://www.linkedin.com/company/ait-themes-com'
+							},
+						],
+					]
+
+appearance:
+	title:     Appearance Settings
+	menu-title: Appearance
+	tabs:
+		colors:
+			title:     Colors & Backgrounds
+			tab-title: Colors & Backgrounds
+			less: true
+			options:
+				Background: section
+				#################
+				htmlBgColor:
+					label: Site Background Color
+					type: colorpicker
+					default: '#ffffff'
+				htmlBg:
+					label: Site Background Image
+					type: image-url
+				htmlBgY:
+					label: Vertical Position
+					type: select
+					default: {
+						top: {
+							label: Top
+							checked: true
+						},
+						center: {
+							label: Center
+						},
+						bottom: {
+							label: Bottom
+						}
+					}
+				htmlBgX:
+					label: Horizontal Position
+					type: select
+					default: {
+						left: {
+							label: Left
+							checked: true
+						},
+						center: {
+							label: Center
+						},
+						right: {
+							label: Right
+						}
+					}
+				htmlBgRepeat:
+					label: Repeat
+					type: select
+					default: {
+						no-repeat: {
+							label: No Repeat
+						},
+						repeat: {
+							label: Repeat
+							checked: true
+						},
+						repeat-x: {
+							label: Repeat X
+						},
+						repeat-y: {
+							label: Repeat Y
+						}
+					}
+				htmlBgAttach:
+					label: Scroll the background?
+					type: radio
+					default:
+						scroll:
+							label: 'Yes'
+							checked: true
+						fixed:
+							label: 'No'
+				headerBgColor:
+					label: Header Background Color
+					type: colorpicker
+					default: '#b463ac'
+				headerBgImg:
+					label: Header Background Image
+					type: image-url
+					default: 'design/img/header-bg.png'
+				footerBgColor:
+					label: Footer Background Color
+					type: colorpicker
+					default: '#f9f9f9'
+				Website Decoration: section
+				#################
+				decorColor:
+					label: First Decoration Color
+					type: colorpicker
+					default: '#1fbae2'
+				secondDecorColor:
+					label: Second Decoration Color
+					type: colorpicker
+					default: '#b463ac'
+				linesColor:
+					label: Lines Color
+					type: colorpicker
+					default: '#dcdcdc'
+		fonts:
+			title:     Fonts
+			tab-title: Fonts
+			less: true
+			options:
+				Font colors: section
+				#################
+				generalFontColor:
+					label:  General Text Color
+					type: colorpicker
+					default: '#444444'
+				mainTitleFontColor:
+					label:  Main Title Color
+					type: colorpicker
+					default: '#444444'
+				titlesFontColor:
+					label:  Titles Font Color
+					type: colorpicker
+					default: '#444444'
+				menusFontColor:
+					label: Menu Font Color
+					type: colorpicker
+					default: '#FFFFFF'
+				menusActiveFontColor:
+					label: Menu Active Font Color
+					type: colorpicker
+					default: '#1fbae2'
+				linksFontColor:
+					label: Links Font Color
+					type: colorpicker
+					default: '#1fbae2'
+				Footer Widget colors: section
+				#################
+				footerTitlesFontColor:
+					label:  Footer Titles Colors
+					type: colorpicker
+					default: '#444444'
+				footerTextFontColor:
+					label:  Footer Text Color
+					type: colorpicker
+					default: '#777777'
+				footerLinksFontColor:
+					label:  Footer Links Color
+					type: colorpicker
+					default: '#1fbae2'
+		customCss:
+			title: Custom CSS
+			tab-title: Custom CSS
+			options:
+				Your custom CSS: section
+				########################
+				customCss:
+					type: custom-css
+					default: '/* your custom CSS in LESS syntax */'
+				LESS variables for images: section
+				########################
+				customImages:
+					type: custom-css-vars
+					default: [
+						[
+							variable: {
+								label: Image name
+								type: text
+							},
+							value: {
+								label: Image
+								type: image-url
+							}
+						]
+					]

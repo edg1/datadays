@@ -1,0 +1,27 @@
+overrideGlobal:
+	label: Use these settings
+	type: checkbox
+	default:
+		'yes':
+			label: 'Yes'
+sliderEnable:
+	label: Show
+	type: radio
+	default:
+		true:
+			label: 'Yes'
+			checked: true
+		false:
+			label: 'No'
+sliderAliases:
+	label: Revolution slider
+	type: dropdown-slider-aliases
+	default: subSlider
+sliderAlternativeMobile:
+	label: Slider alternative Mobile
+	type: image-url
+	default: 'design/img/mobile-bg.png'
+sliderAlternativeTablet:
+	label: Slider alternative Tablet
+	type: image-url
+	default: 'design/img/ipad-bg.png'

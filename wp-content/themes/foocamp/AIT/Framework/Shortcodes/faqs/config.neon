@@ -1,0 +1,40 @@
+title: Faq Shortcodes
+type: button
+
+shortcodeName: get_faqs
+popupOptions:
+	type:
+		label: Insert
+		type: type-select
+		class: all
+		default: {
+			posts: {
+				label: Latest FAQs
+				checked: true
+				shortcodeName: get_faqs
+			},
+			post: {
+				label: One specific FAQ
+				shortcodeName: get_faq
+			},
+			postsCategory: {
+				label: FAQs by category
+				shortcodeName: get_faqs_category
+			}
+		}
+
+	category:
+		label: Category ID
+		type: select-category
+		category: faq
+		class: get_faqs_category
+	number:
+		label: Number of Posts
+		type: text
+		default: 3
+		class: all
+	id:
+		label: Post ID
+		type: text
+		default: ''
+		class: get_faq
