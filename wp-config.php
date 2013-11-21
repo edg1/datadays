@@ -19,10 +19,10 @@
 define('DB_NAME', 'wp_datadays');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'datadays');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'ccmgr2RD');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
