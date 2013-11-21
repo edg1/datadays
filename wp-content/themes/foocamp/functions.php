@@ -22,6 +22,11 @@ $aitThemeShortcodes = array( 'boxesFrames' => 2, 'buttons' => 1, 'columns'=> 1, 
 
 require dirname(__FILE__) . '/AIT/ait-bootstrap.php';
 
+/**
+ * Register custom navigation walker
+ */
+require_once('wp_bootstrap_navwalker.php');
+
 
 // ==================================================
 // Metaboxes settings for Posts and Pages
@@ -74,7 +79,7 @@ function aitEnqueueScriptsAndStyles()
 		// just shortcuts
 		$s = THEME_CSS_URL;
 		$j = THEME_JS_URL;
-
+		$t = get_template_directory_uri();
 
 		aitAddStyles(array(
 			'ait-fancybox'   => array('file' => "$s/fancybox/jquery.fancybox-1.3.4.css"),
@@ -92,6 +97,8 @@ function aitEnqueueScriptsAndStyles()
 			'ait-fancybox'        => array('file' => "$j/libs/jquery.fancybox-1.3.4.js", 'deps' => array('jquery')),
 			'ait-infieldlabel'    => array('file' => "$j/libs/jquery.infieldlabel.js", 'deps' => array('jquery')),
 			'ait-quicksand'       => array('file' => "$j/libs/jquery.quicksand.js", 'deps' => array('jquery')),
+			'ait-quicksand'       => array('file' => "$j/libs/jquery.quicksand.js", 'deps' => array('jquery')),
+			'bootstrap'           => array('file' => "$t/bootstrap/js/bootstrap.min.js", 'deps' => array('jquery')),
 			'jquery-ui-tabs'      => true,
 			'jquery-ui-accordion' => true,
 		));

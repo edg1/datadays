@@ -1,8 +1,8 @@
-<?php //netteCache[01]000459a:2:{s:4:"time";s:21:"0.78516000 1385030971";s:9:"callbacks";a:3:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:70:"/var/www/ed.be/datadays/wp-content/themes/foocamp/Templates/header.php";i:2;i:1385030699;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"eee17d5 released on 2011-08-13";}i:2;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:21:"WPLATTE_CACHE_VERSION";i:2;i:4;}}}?><?php
+<?php //netteCache[01]000459a:2:{s:4:"time";s:21:"0.62272500 1385069186";s:9:"callbacks";a:3:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:70:"/var/www/ed.be/datadays/wp-content/themes/foocamp/Templates/header.php";i:2;i:1385069183;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"eee17d5 released on 2011-08-13";}i:2;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:21:"WPLATTE_CACHE_VERSION";i:2;i:4;}}}?><?php
 
 // source file: /var/www/ed.be/datadays/wp-content/themes/foocamp/Templates/header.php
 
-?><?php list($_l, $_g) = NCoreMacros::initRuntime($template, 'gek405soff')
+?><?php list($_l, $_g) = NCoreMacros::initRuntime($template, '22h9h0s5fh')
 ;
 // snippets support
 if (!empty($control->snippetMode)) {
@@ -19,7 +19,7 @@ if (!empty($control->snippetMode)) {
 <!--[if IE 8]>         <html class="no-js oldie lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="<?php echo htmlSpecialChars($site->charset) ?>" />
+	
 <script type='text/javascript'>var ua = navigator.userAgent; var meta = document.createElement('meta');if((ua.toLowerCase().indexOf('android') > -1 && ua.toLowerCase().indexOf('mobile')) || ((ua.match(/iPhone/i)) || (ua.match(/iPad/i)))){ meta.name = 'viewport';	meta.content = 'target-densitydpi=device-dpi, width=device-width'; }var m = document.getElementsByTagName('meta')[0]; m.parentNode.insertBefore(meta,m);</script> 	<meta name="Author" content="AitThemes.com, http://www.ait-themes.com" />
 
 	<title><?php echo WpLatteFunctions::getTitle() ?></title>
@@ -27,10 +27,10 @@ if (!empty($control->snippetMode)) {
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php echo htmlSpecialChars($site->pingbackUrl) ?>" />
 
-	<!--[if lt IE 9]>
+	<!--[if lt IE 9]> 
 		<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 		<script src="<?php echo NTemplateHelpers::escapeHtmlComment($themeJsUrl) ?>/libs/selectivizr-min.js"></script>
-	<![endif]-->
+	<![endif] -->
 
 <?php if(is_singular() && get_option("thread_comments")){wp_enqueue_script("comment-reply");}wp_head() ?>
 
@@ -40,6 +40,7 @@ if (!empty($control->snippetMode)) {
 
 <?php $sliderOptions = $themeOptions->sections ;if (isset($post) && isset($post->options('slider')->overrideGlobal)): $sliderOptions = $post->options('slider') ;endif ?>
 
+
 <body class="<?php echo join(' ', get_body_class()) . ' ' . join(' ', array($bodyClasses, 'ait-rounder')) ;if ($sliderOptions->sliderEnable == 1): ?>
  with-slider<?php endif ?>" data-themeurl="<?php echo htmlSpecialChars($themeUrl) ?>">
 
@@ -48,7 +49,7 @@ if (!empty($control->snippetMode)) {
 	<div class="mainpage">
 		<header class="page-header" role="banner">
 
-<?php NCoreMacros::includeTemplate("snippets/slider.php", array('options' => $sliderOptions) + $template->getParams(), $_l->templates['gek405soff'])->render() ?>
+<?php NCoreMacros::includeTemplate("snippets/slider.php", array('options' => $sliderOptions) + $template->getParams(), $_l->templates['22h9h0s5fh'])->render() ?>
 
 			<div class="header-holder">
 				<div class="wrapper">

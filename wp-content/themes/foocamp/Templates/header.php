@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js oldie lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="{$site->charset}">
+	
 	{mobileDetectionScript}
 	<meta name="Author" content="AitThemes.com, http://www.ait-themes.com">
 
@@ -13,10 +13,10 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="{$site->pingbackUrl}">
 
-	<!--[if lt IE 9]>
+	<!--[if lt IE 9]> 
 		<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 		<script src="{$themeJsUrl}/libs/selectivizr-min.js"></script>
-	<![endif]-->
+	<![endif] -->
 
 	{head}
 
@@ -28,6 +28,7 @@
 {if isset($post) && isset($post->options('slider')->overrideGlobal)}
 	{var $sliderOptions = $post->options('slider')}
 {/if}
+
 
 <body class="{bodyClasses $bodyClasses, ait-rounder}{if $sliderOptions->sliderEnable == 1} with-slider{/if}{*{if $themeOptions->general->enableCSSFeatures->enable === 'enable'} css-features{/if}*}" data-themeurl="{$themeUrl}">
 

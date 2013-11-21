@@ -1,0 +1,28 @@
+
+.brand-logo.big {
+  width: 200px;
+  height: 111px;
+  background-image: url('img/logo-big.png');
+}
+
+.brand-logo.small {
+  width: 239px;
+  height: 50px;
+  background-image: url('img/logo-small.png');
+}
+
+.navbar.navbar-default {
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid #CCC;
+}
+.navbar {
+  border-radius: 0px;
+}
+ul.navbar-nav{
+  height:100%;
+  bottom: 0px;
+}
+.navbar-brand {
+  padding: 10px;
+}
