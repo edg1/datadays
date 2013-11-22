@@ -82,6 +82,11 @@ function datadays_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+	
+  /**
+	 * Add thumbnails
+	 */
+  add_theme_support( 'post-thumbnails', array( 'post', 'page', 'article', 'dd-speaker'));
 }
 endif; // datadays_setup
 add_action( 'after_setup_theme', 'datadays_setup' );

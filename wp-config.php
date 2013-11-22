@@ -34,7 +34,7 @@ define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
 /** Define SITEURL the hard way */
-define('WP_SITEURL', 'http://www.ed.be/datadays');
+define('WP_SITEURL', 'http://datadays.netslet.com');
 
 
 /**#@+
