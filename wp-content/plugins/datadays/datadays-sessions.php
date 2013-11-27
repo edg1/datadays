@@ -256,6 +256,76 @@ function dd_sessions_time_box_save($post_id) {
 
 
 
+/*************************************
+ * Shortcode for outputting a program
+ *************************************/
+
+function dd_sessions() {
+  $overview = array();
+	$sessions = array();
+	$days = get_terms('dd-session-day');
+
+	// sort loops
+	$counter = 0;
+	foreach ($days as $day) {
+		$sessions = get_posts(array(
+		  'post_type' => 'dd-session',
+		  'post_status' => 'publish',
+		  'tax_query' => array(
+				array(
+  		    'taxonomy' => 'dd-session-day',
+  		    'field' => 'slug',
+  		    'terms' => $day->slug
+				)
+      ),
+		  'posts_per_page' => -1,
+		  'ignore_sticky_posts'=> 1,
+		  'orderby' => 'menu_order'
+		  )
+		);
+
+		foreach($sessions as $session) {
+			$halls = wp_get_post_terms($session->ID, 'dd-session-location');
+			foreach ($halls as $hall) {
+				$overview[$day->name][$hall->name][$counter]['title'] = get_the_title($session->ID);
+				$overview[$day->name][$hall->name][$counter]['speaker'] = get_post_meta($session->ID, 'speaker');
+				$overview[$day->name][$hall->name][$counter]['time'] = get_post_meta($session->ID, 'time');
+			}
+			$counter++;
+		}
+	}
+	
+	$output = '';
+	foreach ($overview as $day => $program) {
+	  $output .= '<div class="row">';
+  	$output .= '<div class="col-md-12 session session-day">' . $day . '</div>';
+  	$output .= '</div>';
+
+  	$output .= '<div class="row session-halls">';
+  	
+  	foreach($program as $hall => $sessions) {
+    	$output .= '<div class="col-md-3 col-sm-6 session-hall-container">';
+    	
+    	$output .= '<div class="session session-hall">' . $hall . '</div>';
+    	
+    	$output .= '<div class="session session-single">';
+      foreach ($sessions as $session) {
+        $output .= '<div class="session-time">' . reset($session['time']) . '</div>';
+        $output .= '<div class="session-title">' . $session['title'] . '</div>';   
+      } 
+      $output .= '</div>';
+      $output .= '</div>';
+       	  	
+  	}
+  	
+  	$output .= '</div>';
+	}
+	
+	return $output;
+	
+}
+
+add_shortcode('sessions', 'dd_sessions');
 
 
 /*

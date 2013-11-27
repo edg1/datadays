@@ -25,7 +25,8 @@
 	<header id="masthead" class="site-header" role="banner">
 		<!-- Bootstrap navbar -->
     <nav class="navbar navbar-default" role="navigation"> 
-    <!-- Brand and toggle get grouped for better mobile display --> 
+	
+	<!-- Brand and toggle get grouped for better mobile display --> 
       <div class="navbar-header"> 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
           <span class="sr-only">Toggle navigation</span> 
@@ -36,7 +37,7 @@
         </a> 
       </div> 
       <!-- Collect the nav links, forms, and other content for toggling --> 
-      <div class="collapse navbar-collapse navbar-ex1-collapse"> 
+      <div class="collapse navbar-collapse navbar-ex1-collapse navbar-right"> 
         <?php /* Primary navigation */
           wp_nav_menu( array(
             'menu' => 'top_menu',
@@ -48,11 +49,14 @@
           );
         ?>
       </div>
-    </nav>
+
+	  </nav>
+	  <!--
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
+		-->
 
 	</header><!-- #masthead -->
 

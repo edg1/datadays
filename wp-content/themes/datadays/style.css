@@ -22,6 +22,42 @@ and Blueprint http://www.blueprintcss.org/
 */
 
 @import url('bootstrap/css/bootstrap.css');
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Rokkitt', serif;
+  color: #565656;
+}
+
+body, html {
+  font-family: 'Open Sans', sans-serif;
+  width:100%;
+  min-height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  /* background-image: url('img/background.png');*/
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .brand-logo.big {
   width: 200px;
@@ -38,7 +74,8 @@ and Blueprint http://www.blueprintcss.org/
 .navbar.navbar-default {
   background-color: transparent;
   border: 0px;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 0px solid #CCC;
+
 }
 .navbar {
   border-radius: 0px;
@@ -49,4 +86,90 @@ ul.navbar-nav{
 }
 .navbar-brand {
   padding: 10px;
+}
+
+.navbar-toggle {
+  /* @todo: add icon */
+}
+
+.footerbackgroundimage {
+    /* This image will be displayed fullscreen */
+    background:url('img/footerbackground.png') no-repeat left bottom;
+
+    /* Ensure the html element always takes up the full height of the browser window */
+    min-height:232px;
+
+    /* The Magic */
+    background-size:cover;
+}
+
+.container-full {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.grayscale {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+
+img.grayscale:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
+
+footer img {
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+body {
+  font-family: 'Dosis', sans-serif;
+}
+
+.session {
+  padding: 5px;
+  outline: 5px solid white;
+  outline-offset: -5px;
+}
+.session-hall-container {
+  padding: 0px;
+}
+.session-day {
+  border-top: 7px solid #273582;
+  border-bottom: 7px solid #273582;
+}
+.session-hall {
+  border-top: 7px solid #009388;
+  border-bottom: 7px solid #009388;
+}
+.session-single {
+  border-top: 7px solid #00B5EC;
+  border-bottom: 7px solid #00B5EC;
+}
+
+footer {
+  margin-top: 100px;
+}
+.navbar-nav .active {
+  border-bottom: 2px solid #273582;
+}
+.navbar-nav .active a {
+  background-color: white !important;
+}
+.speaker-pic {
+  float: left;
+  margin: 5px 5px 5px 0px;
+}
+.speaker {
+  border-top: 7px solid #273582;
+  border-bottom: 7px solid #273582;
+  
+  outline: 5px solid white;
+  outline-offset: -5px;
+}
+.speaker p {
+  clear: both;
 }

@@ -249,15 +249,15 @@ function dd_speakers_bio_box_save($post_id) {
     $result .= '<div class="speakers row">';
     foreach($speakers as $speaker){
       $thumbnail = the_post_thumbnail($speaker->ID, array(32, 32));
-      $result .= '<div class="thumbnail col-xs-12 col-sm-6 col-md-3">';
+      $result .= '<div class="speaker col-xs-12 col-sm-6 col-md-3">';
       $result .= '<div class="speaker-pic">';
-      $result .= '<a href="'. $thumbnail .'" class="speaker">' . get_the_post_thumbnail($speaker->ID, array(75, 75)) . '</a>';
+      $result .= '<a href="'. $thumbnail .'" class="speaker-img">' . get_the_post_thumbnail($speaker->ID, array(75, 75)) . '</a>';
       $result .= '</div>';
-      $result .= '<div class="speaker-details">';
+      //$result .= '<div class="speaker-details">';
       $result .= '<h3>' . $speaker->post_title . '</h3>';
       $result .= '<p><span>' . get_post_meta($speaker->ID, 'bio', true) . '</span></p>';
       $result .= '</div>';
-      $result .= '</div>';
+      //$result .= '</div>';
   }
   $result .= '</div>';
   wp_reset_query();
