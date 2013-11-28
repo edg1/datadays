@@ -22,7 +22,10 @@ function datadays_content_nav( $nav_id ) {
 		if ( ! $next && ! $previous )
 			return;
 	}
-
+  $navtitle = 'Post navigation';
+  if (get_post_type() == 'dd-session') {
+    $navtitle = 'Other sessions';
+  }
 	// Don't print empty markup in archives if there's only one page.
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
@@ -31,7 +34,7 @@ function datadays_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'datadays' ); ?></h1>
+		<h3 class="screen-reader-text"><?php _e( $navtitle, 'datadays' ); ?></h3>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 

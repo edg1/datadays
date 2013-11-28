@@ -9,30 +9,10 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+
 		<?php while ( have_posts() ) : the_post(); ?>
-		  <?php if(get_post_type() == 'dd-session'): ?>
-		  
-		  <div class="row">
-			<div class="col-md-9 col-sm-6">
-			  
-			  <h1><?php echo get_the_title(); ?></h1>
-			  <p>
-			  <?php 
-			    $descriptions = get_post_meta(get_the_ID(), 'description') ;
-			    foreach($descriptions as $description) {
-  			    echo $description;
-			    }
-  			  
-			  ?>
-			  </p>
-			  
-		  </div>
-			<div class="col-md-3 col-sm-6">
-			  <?php print_r(get_post_meta(get_the_ID(), 'speaker', true)); ?>
-			</div>
-		  </div>
-			
-			<?php endif; ?>
+
+			<?php get_template_part( 'content', 'single' ); ?>
 
 			<?php datadays_content_nav( 'nav-below' ); ?>
 

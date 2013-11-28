@@ -9,7 +9,7 @@
  */
 
 
- function dd_sessions_register() {
+function dd_sessions_register() {
 	register_post_type('dd-session',
 		array(
 			'labels' => array(
@@ -19,7 +19,7 @@
 			'add_new_item'	=> __('Add new session', 'dd'),
 			'edit_item'		=> __('Edit session', 'dd'),
 			'new_item'		=> __('New item', 'dd'),
-			'view_item'		=> __('View program', 'dd'),
+			'view_item'		=> __('View session', 'dd'),
 			'search_items'	=> __('Search session', 'dd'),
 			'not_found'		=> __('Nothing found', 'dd'),
 			'not_found_in_trash' => __('Nothing found in Trash', 'dd'),
@@ -38,18 +38,29 @@
 		)
 	);
 
-  /*
-  ,
-  'menu_position' => $GLOBALS['aitThemeCustomTypes']['program'],
-  */
 	dd_sessions_taxonomies();
 	flush_rewrite_rules(false);
 }
+add_filter( 'template_include', 'dd_sessions_view', 1 );
+
+function dd_sessions_view($template_path) {
+    if ( get_post_type() == 'dd_session' ) {
+        if ( is_single() ) {
+            // checks if the file exists in the theme first,
+            // otherwise serve the file from the plugin
+            if ( $theme_file = locate_template( array ( 'single-dd_session.php' ) ) ) {
+                $template_path = $theme_file;
+                echo $template_path;
+            } else {
+                $template_path = plugin_dir_path( __FILE__ ) . '/single-dd_session.php';
+            }
+        }
+    }
+    return $template_path;
+}
 
 
-
-function dd_sessions_taxonomies()
-{
+function dd_sessions_taxonomies() {
 
 	register_taxonomy( 'dd-session-day', array( 'dd-session' ), array(
 		'hierarchical' => true,
@@ -100,15 +111,6 @@ function dd_sessions_taxonomies()
 }
 add_action( 'init', 'dd_sessions_register' );
 
-
-/*function aitprogramFeaturedImageMetabox()
-{
-	remove_meta_box( 'postimagediv', 'ait-program', 'side' );
-	add_meta_box('postimagediv', __('Medium (blog) image', 'ait'), 'post_thumbnail_meta_box', 'ait-program', 'normal', 'high');
-}
-add_action('do_meta_boxes', 'aitprogramFeaturedImageMetabox');
-
-*/
 
 function dd_sessions_columns($cols)
 {
@@ -185,6 +187,9 @@ function dd_sessions_time_box_content($post) {
 
 
 function dd_sessions_speaker_box_content($post) {
+  wp_nonce_field( plugin_basename(__FILE__ ), 'dd_sessions_speaker_box_content_nonce' );
+  $parents = array();
+  /*
   $parents = get_posts(
     array(
       'post_type'   => 'dd-speaker', 
@@ -192,13 +197,32 @@ function dd_sessions_speaker_box_content($post) {
       'order'       => 'ASC', 
     )
   );
-
+  */
+  
+  $args = array(
+    'post_type' => 'dd-speaker',
+    'posts_per_page'=> -1,
+    'ignore_sticky_posts'=>1,
+    'orderby'     => 'title', 
+    'order'       => 'ASC', 
+  );
+  
+  $my_query = new WP_Query($args);
+  if( $my_query->have_posts() ) {
+   
+      $parents = $my_query->get_posts();
+    
+  }
+  
   if (!empty($parents)) {
     echo '<select name="parent_id" class="widefat">'; // !Important! Don't change the 'parent_id' name attribute.
     foreach ($parents as $parent) {
         printf( '<option value="%s"%s>%s</option>', esc_attr( $parent->ID ), selected( $parent->ID, $post->post_parent, false ), esc_html( $parent->post_title ) );
     }
     echo '</select>';
+  }
+  if (isset($_POST['speaker']) && $_POST['speaker'] != '') {
+    update_post_meta($post->ID, 'speaker', $_POST['speaker']);
   }
 }
 
@@ -209,6 +233,7 @@ function dd_sessions_speaker_box_content($post) {
  
 add_action('save_post', 'dd_sessions_description_box_save', 10, 2);
 add_action('save_post', 'dd_sessions_time_box_save', 10, 2);
+add_action('save_post', 'dd_sessions_speaker_box_save', 10, 2);
 
 function dd_sessions_description_box_save($post_id) {
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
@@ -254,17 +279,53 @@ function dd_sessions_time_box_save($post_id) {
 	update_post_meta($post_id, 'time', $value);
 }
 
+function dd_sessions_speaker_box_save($post_id) {
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
+	  return;
+
+	if (array_key_exists('dd_sessions_speaker_box_content_nonce', $_POST) && 
+	    !wp_verify_nonce($_POST['dd_sessions_speaker_box_content_nonce'], plugin_basename(__FILE__))) {
+	    	die('bad nonce');
+	  return;
+  }
+
+	if (array_key_exists('post_type', $_POST) && 'page' == $_POST['post_type']) {
+		if (!current_user_can( 'edit_page', $post_id))
+		return;
+	} else {
+		if (!current_user_can( 'edit_post', $post_id))
+		return;
+	}
+	$value = array_key_exists('speaker', $_POST) ? $_POST['speaker'] : false;
+	update_post_meta($post_id, 'speaker', $value);
+}
+
 
 
 /*************************************
  * Shortcode for outputting a program
  *************************************/
 
-function dd_sessions() {
+function dd_sessions($atts) {
   $overview = array();
 	$sessions = array();
-	$days = get_terms('dd-session-day');
 
+  extract( shortcode_atts( array(
+		'day' => false,
+	), $atts, 'dd' ) );
+	
+	
+	$days = array();
+	if (!$day) {
+  	$days = get_terms('dd-session-day');
+	} else {
+  	$days = array();
+  	$day = get_term_by('slug', $day, 'dd-session-day');
+  	if ($day) {
+    	$days[] = $day;
+  	}
+	}
+	
 	// sort loops
 	$counter = 0;
 	foreach ($days as $day) {
@@ -290,6 +351,7 @@ function dd_sessions() {
 				$overview[$day->name][$hall->name][$counter]['title'] = get_the_title($session->ID);
 				$overview[$day->name][$hall->name][$counter]['speaker'] = get_post_meta($session->ID, 'speaker');
 				$overview[$day->name][$hall->name][$counter]['time'] = get_post_meta($session->ID, 'time');
+				$overview[$day->name][$hall->name][$counter]['link'] = get_permalink($session->ID);
 			}
 			$counter++;
 		}
@@ -298,7 +360,7 @@ function dd_sessions() {
 	$output = '';
 	foreach ($overview as $day => $program) {
 	  $output .= '<div class="row">';
-  	$output .= '<div class="col-md-12 session session-day">' . $day . '</div>';
+  	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
   	$output .= '</div>';
 
   	$output .= '<div class="row session-halls">';
@@ -310,8 +372,12 @@ function dd_sessions() {
     	
     	$output .= '<div class="session session-single">';
       foreach ($sessions as $session) {
+        $output .= '<a href="' . $session['link'] . '" alt="Session details">';
+        $output .= '<div class="session-button glyphicon glyphicon-play">&nbsp;</div>';
         $output .= '<div class="session-time">' . reset($session['time']) . '</div>';
         $output .= '<div class="session-title">' . $session['title'] . '</div>';   
+        
+        $output .= '</a>';
       } 
       $output .= '</div>';
       $output .= '</div>';

@@ -42,65 +42,31 @@ h6,
   color: #565656;
 }
 
+body {
+  padding-top: 120px;
+}
+
+#hero {
+  
+}
+
 body, html {
   font-family: 'Open Sans', sans-serif;
   width:100%;
   min-height:100%;
   margin: 0px;
-  padding: 0px;
 }
+
 body {
-  /* background-image: url('img/background.png');*/
+  background-image: url('img/background.png');
   background-position: bottom left;
   background-repeat: no-repeat;
+  /*
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-.brand-logo.big {
-  width: 200px;
-  height: 111px;
-  background-image: url('img/logo-big.png');
-}
-
-.brand-logo.small {
-  width: 239px;
-  height: 50px;
-  background-image: url('img/logo-small.png');
-}
-
-.navbar.navbar-default {
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 0px solid #CCC;
-
-}
-.navbar {
-  border-radius: 0px;
-}
-ul.navbar-nav{
-  height:100%;
-  bottom: 0px;
-}
-.navbar-brand {
-  padding: 10px;
-}
-
-.navbar-toggle {
-  /* @todo: add icon */
-}
-
-.footerbackgroundimage {
-    /* This image will be displayed fullscreen */
-    background:url('img/footerbackground.png') no-repeat left bottom;
-
-    /* Ensure the html element always takes up the full height of the browser window */
-    min-height:232px;
-
-    /* The Magic */
-    background-size:cover;
+  */
 }
 
 .container-full {
@@ -120,20 +86,63 @@ img.grayscale:hover {
   -webkit-filter: grayscale(0%);
 }
 
-footer img {
-  margin: 0 auto;
-  vertical-align: middle;
-}
-
 body {
   font-family: 'Dosis', sans-serif;
 }
 
+
+/* HACKATHON */
+.hackathon h3 {
+  padding: 2px 0px;
+}
+.hackathon-logo {
+  width: 100%;
+  padding: 10px;
+}
+.hackathon-logo img {
+  margin: 0 auto;
+}
+.hackathon-citadel > h3 {
+  border-top: 2px solid #00B5EC;
+  border-bottom: 2px solid #00B5EC;  
+}
+.hackathon-citadel button {
+  background-color: #00B5EC; 
+}
+
+
+.hackathon-vkbo > h3 {
+  border-top: 2px solid #009388;
+  border-bottom: 2px solid #009388; 
+}
+.hackathon-vkbo button {
+  background-color: #009388; 
+}
+
+.hackathon-idrops > h3 {
+  border-top: 2px solid #273582;
+  border-bottom: 2px solid #273582; 
+}
+.hackathon-idrops button {
+  background-color: #273582;
+}
+
+.hackathon > button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  border: 0px;
+  color: white;
+}
+
+/* SESSIONS */
+
 .session {
-  padding: 5px;
+  padding: 5px 10px;
   outline: 5px solid white;
   outline-offset: -5px;
 }
+
 .session-hall-container {
   padding: 0px;
 }
@@ -146,19 +155,109 @@ body {
   border-bottom: 7px solid #009388;
 }
 .session-single {
+  padding: 0px;
   border-top: 7px solid #00B5EC;
   border-bottom: 7px solid #00B5EC;
 }
+.session-single a {
+  padding: 5px 5px 5px 10px;
+  display: block;
+  text-decoration: none;
+}
+.session-single a:hover {
+  color: white;
+  background-color: #00B5EC;
+  -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; -o-transition: all 0.5s ease; 
+}
+.session-button {
+  display: block;
+  float: right;
+  color: white;
+}
+.session h3 {
+  margin: 0px;
+}
 
-footer {
+
+@keyframes sessionhover {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+/* FOOTER */
+
+.site > footer {
   margin-top: 100px;
 }
+footer img {
+  margin: auto auto;
+}
+
+.footerbackgroundimage {
+    /* This image will be displayed fullscreen */
+    background:url('img/footerbackground.png') no-repeat left bottom;
+
+    /* Ensure the html element always takes up the full height of the browser window */
+    min-height:232px;
+
+    /* The Magic */
+    background-size:cover;
+}
+
+/* NAVBAR */
+.brand-logo.big {
+  width: 200px;
+  height: 111px;
+  background-image: url('img/logo-big.png');
+}
+
+.brand-logo.small {
+  width: 239px;
+  height: 50px;
+  background-image: url('img/logo-small.png');
+}
+
+.navbar.navbar-default {
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 0px solid #CCC;
+  display: block;
+  background-color: white;
+}
+.navbar {
+  border-radius: 0px;
+}
+ul.navbar-nav{
+  height:100%;
+  bottom: 0px;
+}
+.navbar-brand {
+  padding: 10px;
+}
+.navbar-collapse {
+  margin-top: auto;
+}
+.navbar-toggle {
+  /* @todo: add icon */
+}
+
 .navbar-nav .active {
   border-bottom: 2px solid #273582;
 }
 .navbar-nav .active a {
   background-color: white !important;
 }
+
+/* SPEAKERS */
+
 .speaker-pic {
   float: left;
   margin: 5px 5px 5px 0px;
@@ -170,6 +269,14 @@ footer {
   outline: 5px solid white;
   outline-offset: -5px;
 }
+
 .speaker p {
   clear: both;
+}
+
+.nav-previous {
+  float: left;
+}
+.nav-next {
+  float: right;
 }

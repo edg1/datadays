@@ -22,12 +22,14 @@ function dd_speakers_register() {
 				'add_new_item'	=> __('Add new speaker', 'dd'),
 				'edit_item'		=> __('Edit speaker', 'dd'),
 				'new_item'		=> __('New speaker', 'dd'),
+				'view_item'		=> __('View speaker', 'dd'),
+			  'search_items'	=> __('Search speakers', 'dd'),
 				'not_found'		=> __('No speakers found', 'dd'),
 				'not_found_in_trash' => __('No speakers found in Trash', 'dd'),
 				'menu_name'		=> __('Speakers', 'dd'),
 			),
 			'description' => __('Manage speakers', 'dd'),
-			'public' => false,
+			'public' => true,
 			'show_in_nav_menus' => false,
 			'has_archive' => true,
 			'supports' => array(
@@ -248,6 +250,8 @@ function dd_speakers_bio_box_save($post_id) {
     $counter = 1;
     $result .= '<div class="speakers row">';
     foreach($speakers as $speaker){
+      if ($speaker->post_title == "")
+        continue;
       $thumbnail = the_post_thumbnail($speaker->ID, array(32, 32));
       $result .= '<div class="speaker col-xs-12 col-sm-6 col-md-3">';
       $result .= '<div class="speaker-pic">';

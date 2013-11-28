@@ -19,12 +19,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="container hfeed site">
+<div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 
 	<header id="masthead" class="site-header" role="banner">
 		<!-- Bootstrap navbar -->
-    <nav class="navbar navbar-default" role="navigation"> 
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
 	
 	<!-- Brand and toggle get grouped for better mobile display --> 
       <div class="navbar-header"> 
@@ -37,6 +37,7 @@
         </a> 
       </div> 
       <!-- Collect the nav links, forms, and other content for toggling --> 
+      <div class="navbar-spacer"></div>
       <div class="collapse navbar-collapse navbar-ex1-collapse navbar-right"> 
         <?php /* Primary navigation */
           wp_nav_menu( array(
@@ -57,7 +58,9 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
 		-->
-
+		<?php if (is_front_page()): ?>
+		<div id="hero" class=""><img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/img/hero.jpg"/></div>
+		<?php endif; ?>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-conten container">
