@@ -24,6 +24,7 @@ and Blueprint http://www.blueprintcss.org/
 @import url('bootstrap/css/bootstrap.css');
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,200);
 
 
 h1,
@@ -41,13 +42,28 @@ h6,
   font-family: 'Rokkitt', serif;
   color: #565656;
 }
-
-body {
-  padding-top: 120px;
+#header-image {
+  height: 400px;
+  background-image: url('img/hero.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: table;
 }
 
-#hero {
-  
+#header-image .middle {
+  height: 100%;
+  padding-top: 80px;
+}
+
+#hero-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  padding: 0px 10%;
+  color: white;
+  text-align: center;
+  text-shadow: black 2px 1px 1px;
+  font-weight: 100;
 }
 
 body, html {
@@ -87,7 +103,7 @@ img.grayscale:hover {
 }
 
 body {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -177,20 +193,6 @@ body {
 .session h3 {
   margin: 0px;
 }
-
-
-@keyframes sessionhover {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
-
 
 /* FOOTER */
 

@@ -366,7 +366,8 @@ function dd_sessions($atts) {
   	$output .= '<div class="row session-halls">';
   	
   	foreach($program as $hall => $sessions) {
-    	$output .= '<div class="col-md-3 col-sm-6 session-hall-container">';
+  	  $colsize = ($hall == 'Plenary') ? 'col-md-12' : 'col-md-3 col-sm-6';
+    	$output .= '<div class="' . $colsize . ' session-hall-container">';
     	
     	$output .= '<div class="session session-hall">' . $hall . '</div>';
     	

@@ -24,7 +24,7 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<!-- Bootstrap navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+    <nav class="navbar navbar-default" role="navigation"> 
 	
 	<!-- Brand and toggle get grouped for better mobile display --> 
       <div class="navbar-header"> 
@@ -32,8 +32,8 @@
           <span class="sr-only">Toggle navigation</span> 
         </button> 
         <a class="navbar-brand" href="<?php bloginfo('url')?>">
-          <div class="brand-logo big hidden-xs"></div>
-          <div class="brand-logo small visible-xs"></div>
+          <div class="brand-logo big hidden-xs hidden-sm"></div>
+          <div class="brand-logo small visible-xs visible-sm"></div>
         </a> 
       </div> 
       <!-- Collect the nav links, forms, and other content for toggling --> 
@@ -59,7 +59,11 @@
 		</div>
 		-->
 		<?php if (is_front_page()): ?>
-		<div id="hero" class=""><img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/img/hero.jpg"/></div>
+		<div id="header-image" class="hidden-xs">
+		<div class="middle">
+		<div id="hero-text">Join The Open Data Pioneers, practitioners, thinkers and researchers from across the world to unlock and advance the power of collaboration and Open Innovation in this joint conference by the Open Knowledge Foundation (OKFN), Citadel on the Move and Linked Organization of Local Authority ICT Societies (LOLA).</div>
+		</div>
+		</div>
 		<?php endif; ?>
 	</header><!-- #masthead -->
 
