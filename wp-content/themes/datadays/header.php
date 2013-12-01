@@ -23,12 +23,13 @@
 	<?php do_action( 'before' ); ?>
 
 	<header id="masthead" class="site-header" role="banner">
+	<div class="container">
 		<!-- Bootstrap navbar -->
     <nav class="navbar navbar-default" role="navigation"> 
 	
 	<!-- Brand and toggle get grouped for better mobile display --> 
       <div class="navbar-header"> 
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
+        <button type="button" class="navbar-toggle glyphicon glyphicon-play" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
           <span class="sr-only">Toggle navigation</span> 
         </button> 
         <a class="navbar-brand" href="<?php bloginfo('url')?>">
@@ -52,6 +53,7 @@
       </div>
 
 	  </nav>
+	</div>
 	  <!--
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

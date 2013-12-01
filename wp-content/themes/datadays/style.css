@@ -108,8 +108,10 @@ body {
 
 
 /* HACKATHON */
-.hackathon h3 {
+h3 {
   padding: 2px 0px;
+  border-top: 2px solid #00B5EC;
+  border-bottom: 2px solid #00B5EC;  
 }
 .hackathon-logo {
   width: 100%;
@@ -192,6 +194,9 @@ body {
 }
 .session h3 {
   margin: 0px;
+  padding: 0px 0px;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 
 /* FOOTER */
@@ -236,26 +241,48 @@ footer img {
 }
 .navbar {
   border-radius: 0px;
+  margin-bottom: 0px;
+  min-height: 100px;
 }
 ul.navbar-nav{
-  height:100%;
+  height: 100%;
   bottom: 0px;
 }
 .navbar-brand {
   padding: 10px;
 }
+.navbar-spacer {
+  float: right;
+  height: 80px;
+}
 .navbar-collapse {
-  margin-top: auto;
+  clear: right;
 }
 .navbar-toggle {
-  /* @todo: add icon */
+  -webkit-transform: rotate(90deg); 
+  -moz-transform: rotate(90deg);
+  border: 0px;
+  font-size: 30px;
+  color: #00B5EC;
+  border-radius: 0px;
+}
+.navbar-toggle:hover {
+  background-color: white;
+  color: #273582;
 }
 
-.navbar-nav .active {
-  border-bottom: 2px solid #273582;
-}
 .navbar-nav .active a {
+  border-bottom: 2px solid #273582;
   background-color: white !important;
+}
+.navbar-nav a {
+  border-bottom: 2px solid white;
+}
+.navbar-nav a:hover {
+  border-bottom: 2px solid #00B5EC;
+}
+.navbar-nav .active a:hover {
+  border-bottom: 2px solid #273582;
 }
 
 /* SPEAKERS */
