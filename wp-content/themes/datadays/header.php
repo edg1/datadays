@@ -69,4 +69,4 @@
 		<?php endif; ?>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-conten container">
+	<div id="content" class="site-content container">

@@ -16,7 +16,7 @@
 
 	</div><!-- #content -->
         
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer container" role="contentinfo">
 
   <div class="row">
       
