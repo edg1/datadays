@@ -22,7 +22,7 @@ and Blueprint http://www.blueprintcss.org/
 */
 
 @import url('bootstrap/css/bootstrap.css');
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,200);
 
@@ -181,8 +181,14 @@ h3 {
   padding: 5px 5px 5px 10px;
   display: block;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
 }
-.session-single a:hover {
+.session-single a:not(.mute):hover {
   color: white;
   background-color: #00B5EC;
   -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; -o-transition: all 0.5s ease; 
@@ -199,6 +205,57 @@ h3 {
   border-bottom: 0px;
 }
 
+.session-slots-1 {
+  height: 25px;
+}
+.session-slots-2 {
+  height: 50px;
+}
+.session-slots-3 {
+  height: 75px;
+}
+.session-slots-4 {
+  height: 100px;
+}
+.session-slots-5 {
+  height: 125px;
+}
+.session-slots-6 {
+  height: 150px;
+}
+.session-slots-7 {
+  height: 175px;
+}
+.session-slots-8 {
+  height: 200px;
+}
+.session-slots-16 {
+  height: 400px;
+}
+
+.session-slots-10 {
+  height: 250px;
+}
+.session-single a {
+  background-color: white;
+  color: #565656;
+}
+
+.session-single a.mute {
+  color: black;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px white;
+  background-image: url('./img/stripe_blue_light.png');
+}
+.session-single a.mutehard {
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  background-image: url('./img/stripe_grey.png');
+}
+.session-single a:not(.first) {
+  /* background-image: url('./img/stripe_blue.png'); */
+  border-top: 1px dashed #00B5EC;
+}
 /* FOOTER */
 
 .site > footer {

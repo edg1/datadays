@@ -308,13 +308,13 @@ function dd_sessions_speaker_box_save($post_id) {
 
 function dd_sessions($atts) {
   $overview = array();
-	$sessions = array();
-
+  $slotsize = 15;
   extract( shortcode_atts( array(
 		'day' => false,
 	), $atts, 'dd' ) );
 	
 	
+	// Getting the $days
 	$days = array();
 	if (!$day) {
   	$days = get_terms('dd-session-day');
@@ -328,7 +328,10 @@ function dd_sessions($atts) {
 	
 	// sort loops
 	$counter = 0;
+	$programme = array();
+	$first = null;
 	foreach ($days as $day) {
+	  $overview[$day->name] = array();
 		$sessions = get_posts(array(
 		  'post_type' => 'dd-session',
 		  'post_status' => 'publish',
@@ -344,52 +347,112 @@ function dd_sessions($atts) {
 		  'orderby' => 'menu_order'
 		  )
 		);
-
+		$earliest = null;
 		foreach($sessions as $session) {
 			$halls = wp_get_post_terms($session->ID, 'dd-session-location');
-			foreach ($halls as $hall) {
-				$overview[$day->name][$hall->name][$counter]['title'] = get_the_title($session->ID);
-				$overview[$day->name][$hall->name][$counter]['speaker'] = get_post_meta($session->ID, 'speaker');
-				$overview[$day->name][$hall->name][$counter]['time'] = get_post_meta($session->ID, 'time');
-				$overview[$day->name][$hall->name][$counter]['link'] = get_permalink($session->ID);
+			if (count($halls) < 1) {
+  			continue;
 			}
-			$counter++;
+			foreach($halls as $hall) {
+			  $time = explode('-', reset(get_post_meta($session->ID, 'time')));
+        if (count($time) == 2) {
+          $slots = calculate_slots($time[0], $time[1]);
+          $overview[$day->name][$hall->name][$time[0]] = array(
+            'title' => get_the_title($session->ID),
+            'slots' => $slots,
+            'hall' => $hall->name,
+            'start' => $time[0],
+            'end' => $time[1],
+            'link' => get_permalink($session->ID),
+          );
+        }
+      }  
+		}
+		foreach ($overview[$day->name] as $hallname => $sessions) {
+		  ksort($overview[$day->name][$hallname]);
 		}
 	}
+
+	//print_r($overview);
 	
 	$output = '';
-	foreach ($overview as $day => $program) {
+	foreach ($overview as $day => $halls) {
+	  
 	  $output .= '<div class="row">';
   	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
-  	$output .= '</div>';
+    $output .= '</div>';
+    $output .= '<div class="row session-halls">';
+    
+    // Shift plenary to first location
+    if (array_key_exists('Plenary', $halls)) {
+      $plenary = $halls['Plenary'];
+      unset($halls['Plenary']);
+      $halls = array('Plenary' => $plenary) + $halls;
+    }
 
-  	$output .= '<div class="row session-halls">';
-  	
-  	foreach($program as $hall => $sessions) {
+    // Find earliest session of the day
+    $firstsession = '23:00';
+    foreach($halls as $hall => $sessions) {
+      if ($hall != 'Plenary' && (count($sessions) > 0)) {
+        $f = reset(array_keys($sessions));
+        if ($f < $firstsession)
+          $firstsession = $f;
+      }
+    }
+    
+    
+    foreach($halls as $hall => $sessions) {  
+      
   	  $colsize = ($hall == 'Plenary') ? 'col-md-12' : 'col-md-3 col-sm-6';
-    	$output .= '<div class="' . $colsize . ' session-hall-container">';
-    	
-    	$output .= '<div class="session session-hall">' . $hall . '</div>';
-    	
-    	$output .= '<div class="session session-single">';
+  	  $output .= '<div class="' . $colsize . ' session-hall-container">';
+      $output .= '<div class="session session-hall">' . $hall . '</div>';
+      
+      $output .= '<div class="session session-single">';
+      $first = 'first';
+      $previous = array('end' => $firstsession);
       foreach ($sessions as $session) {
-        $output .= '<a href="' . $session['link'] . '" alt="Session details">';
-        $output .= '<div class="session-button glyphicon glyphicon-play">&nbsp;</div>';
-        $output .= '<div class="session-time">' . reset($session['time']) . '</div>';
+        $extra = ($session['title'] == 'Coffee' || $session['title'] == 'Lunch') ? 'mute' : '';
+        // Create invalidated space
+        if ($hall != 'Plenary' && ($previous['end'] != $session['start'])) {
+          $spaceslots = calculate_slots($previous['end'], $session['start']);
+          $output .= '<a href="" alt="Free space" class="session-slots-' . $spaceslots . ' ' . $first . ' mutehard"></a>';
+        }
+        // Create actual session link
+        $output .= '<a href="' . $session['link'] . '" alt="Session details" class="session-slots-' . $session['slots'] . ' ' . $first . ' '  . $extra . '">';
+        if ($extra != 'mute') {
+          $output .= '<div class="session-button glyphicon glyphicon-play">&nbsp;</div>';
+        }
+        $output .= '<div class="session-time">' . $session['start'] . '</div>';
         $output .= '<div class="session-title">' . $session['title'] . '</div>';   
         
         $output .= '</a>';
-      } 
+        if ($first != '')
+          $first = '';
+        $previous = $session;
+      }
       $output .= '</div>';
       $output .= '</div>';
-       	  	
-  	}
+        
+    }
+    $output .= '</div>';
+  }
   	
-  	$output .= '</div>';
-	}
+  $output .= '</div>';
+  return $output;
 	
-	return $output;
-	
+}
+
+function calculate_slots($start, $end) {
+  $slotsize = 15;
+  $a = new DateTime($start);
+  $b = new DateTime($end);
+  $interval = $a->diff($b);
+  $minutes = intval($interval->format('%H')) * 60 + intval($interval->format('%i'));
+  $slots = floor($minutes / $slotsize);
+  return $slots;
+}
+function renderhall($hall, $overview) {
+  
 }
 
 add_shortcode('sessions', 'dd_sessions');
