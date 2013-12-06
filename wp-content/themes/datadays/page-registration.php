@@ -26,7 +26,7 @@ get_header(); ?>
 
 			</div>
 			<div class="col-md-6">
-			<div class="mijnevent"><iframe src="http://mijnevent.be/nl/event/50971/data-days/info?iframe=1" width="600" height="1500" frameBorder="0"></iframe>
+			<div class="mijnevent"><iframe src="http://www.mijnevent.be/en/default/events/view/p/1/event-id/50971/event-slug/data-days?iframe=1" width="600" height="1500" frameBorder="0"></iframe>
 			</div>		
 			</div>
 			</div>
