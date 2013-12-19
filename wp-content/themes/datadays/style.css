@@ -44,6 +44,8 @@ h6,
 }
 #header-image {
   height: 400px;
+  line-height: 400px;
+  text-align: center;
   background-image: url('img/hero.jpg');
   background-size: cover;
   background-position: center center;
@@ -52,8 +54,9 @@ h6,
 }
 
 #header-image .middle {
-  height: 100%;
-  padding-top: 80px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;  
 }
 
 #hero-text {
@@ -62,9 +65,33 @@ h6,
   padding: 0px 10%;
   color: white;
   text-align: center;
-  text-shadow: black 2px 1px 1px;
+  text-shadow: 1px 1px 1px #000;
+
   font-weight: 100;
 }
+#hero-text strong {
+  color: #00CCFD;
+}
+.balloon {
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+  position: relative;
+}
+/*
+ * Uncomment for tail
+ 
+#hero-text .balloon:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 47%;
+  border-width: 25px 25px 0;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.5) transparent;
+  display: block;
+  width: 0;
+}
+*/
 
 body, html {
   font-family: 'Open Sans', sans-serif;
@@ -299,8 +326,8 @@ footer .support img {
 
 /* NAVBAR */
 .brand-logo.big {
-  width: 200px;
-  height: 111px;
+  width: 170px;
+  height: 94px;
   background-image: url('img/logo-big.png');
 }
 
@@ -320,7 +347,7 @@ footer .support img {
 .navbar {
   border-radius: 0px;
   margin-bottom: 0px;
-  min-height: 100px;
+  /* min-height: 100px; */
 }
 ul.navbar-nav{
   height: 100%;
@@ -331,7 +358,7 @@ ul.navbar-nav{
 }
 .navbar-spacer {
   float: right;
-  height: 80px;
+  height: 64px;
 }
 .navbar-collapse {
   clear: right;
@@ -365,20 +392,42 @@ ul.navbar-nav{
 
 /* SPEAKERS */
 
-.speaker-header {
+.organization {
+  font-weight: bold;
+}
+.speakers .speaker-header {
   height: 150px;
 }
 .speaker-pic {
   float: left;
-  margin: 5px 5px 5px 0px;
-  border: 3px solid #00B5EC;
+  margin: 5px 10px 5px 0px;
+  display: inline-block;
+}
+.speaker-title {
+
+}
+.speakers .speaker-pic {
+  min-height: 140px;
+}
+.speaker-pic img {
+  border: 2px solid #00B5EC;
+}
+.speaker-pic-big {
+  margin: 20px 0px 0px 0px;
+}
+.speaker-pic-big img {
+  border: 2px solid #00B5EC;
+  height: auto;
+  max-width: 100%;
 }
 .speaker p {
   clear: both;
-  border-top: 3px solid #00B5EC;
-  border-bottom: 3px solid #00B5EC;
-  min-height: 200px;
+  border-bottom: 2px solid #00B5EC;
   padding: 10px 10px;
+}
+.speakers .speaker p {
+  min-height: 200px;
+  border-top: 2px solid #00B5EC;
 }
 .speaker h3 {
   border: none;

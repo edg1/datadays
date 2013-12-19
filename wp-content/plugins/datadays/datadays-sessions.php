@@ -44,15 +44,15 @@ function dd_sessions_register() {
 add_filter( 'template_include', 'dd_sessions_view', 1 );
 
 function dd_sessions_view($template_path) {
-    if ( get_post_type() == 'dd_session' ) {
+  //$template_path = false;
+    if ( get_post_type() == 'dd-session' ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
-            if ( $theme_file = locate_template( array ( 'single-dd_session.php' ) ) ) {
+            if ( $theme_file = locate_template( array ( 'archive-dd_session.php' ) ) ) {
                 $template_path = $theme_file;
-                echo $template_path;
             } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/single-dd_session.php';
+                $template_path = plugin_dir_path( __FILE__ ) . '/archive-dd_session.php';
             }
         }
     }

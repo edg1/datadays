@@ -45,7 +45,6 @@ function dd_speakers_register() {
 	dd_speakers_taxonomies();
 }
 
-
 function dd_speakers_taxonomies()
 {
 
@@ -108,6 +107,24 @@ function dd_speakers_custom_column($column, $post_id) {
 }
 add_action( "manage_posts_custom_column", "dd_speakers_custom_column", 10, 2);
 
+
+
+add_filter( 'template_include', 'dd_speakers_view', 1 );
+function dd_speakers_view($template_path) {
+  //$template_path = false;
+    if ( get_post_type() == 'dd-speaker' ) {
+        if ( is_single() ) {
+            // checks if the file exists in the theme first,
+            // otherwise serve the file from the plugin
+            if ( $theme_file = locate_template( array ( 'archive-dd_speaker.php' ) ) ) {
+                $template_path = $theme_file;
+            } else {
+                $template_path = plugin_dir_path( __FILE__ ) . '/archive-dd_speaker.php';
+            }
+        }
+    }
+    return $template_path;
+}
 
 /**
  *
@@ -252,23 +269,8 @@ function dd_speakers_bio_box_save($post_id) {
     foreach($speakers as $speaker){
       if ($speaker->post_title == "")
         continue;
-      $thumbnail = the_post_thumbnail($speaker->ID, array(32, 32));
       $result .= '<div class="speaker col-xs-12 col-sm-6 col-md-3">';
-      $result .= '<div class="speaker-header">';
-
-      $result .= '<div class="speaker-pic">';
-      $result .= '<a href="'. $thumbnail .'" class="speaker-img">' . get_the_post_thumbnail($speaker->ID, array(75, 75)) . '</a>';
-      $result .= '</div>';
-
-      $result .= '<span>';
-      $result .= '<h3>' . $speaker->post_title . '</h3>';
-      $org = reset(wp_get_post_terms($speaker->ID, 'dd-speaker-category'));
-      if ($org) {
-        $result .= '<span>' . $org->name . '</span>';
-      }
-      $result .= '</span>';
-      $result .= '</div>';
-      $result .= '<p><span>' . get_post_meta($speaker->ID, 'bio', true) . '</span></p>';
+      $result .= dd_speakers_render_speaker($speaker);
       $result .= '</div>';
       //$result .= '</div>';
   }
@@ -280,5 +282,33 @@ function dd_speakers_bio_box_save($post_id) {
 
 add_shortcode( "speakers", "dd_speakers_shortcode" );
 
+function dd_speakers_render_speaker($speaker) {
+  $result = '';
+  $thumbnail = get_permalink($speaker->ID);
+
+  $result .= '<div class="speaker-header">';
+
+  
+  if (has_post_thumbnail($speaker->ID)) {
+    $result .= '<div class="speaker-pic">';
+    $result .= '<a href="'. $thumbnail .'" class="speaker-img">' . get_the_post_thumbnail($speaker->ID, array(75, 75)) . '</a>';
+    $result .= '</div>';
+  } else {
+    //$result .= '<div class="nothumb"></div>';
+  }
+  
+
+  $result .= '<div class="speaker-title">';
+  $result .= '<h3>' . $speaker->post_title . '</h3>';
+  $org = reset(wp_get_post_terms($speaker->ID, 'dd-speaker-category'));
+  if ($org) {
+    $result .= '<span>' . $org->name . '</span>';
+  }
+  $result .= '</div>';
+  $result .= '</div>';
+  $result .= '<p><span>' . get_post_meta($speaker->ID, 'bio', true) . '</span></p>';
+
+  return $result;
+}
 
 ?>
