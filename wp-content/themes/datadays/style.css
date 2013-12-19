@@ -365,6 +365,9 @@ ul.navbar-nav{
 
 /* SPEAKERS */
 
+.speaker-header {
+  height: 150px;
+}
 .speaker-pic {
   float: left;
   margin: 5px 5px 5px 0px;
@@ -372,10 +375,9 @@ ul.navbar-nav{
 }
 .speaker p {
   clear: both;
-  /* border-top: 3px solid #00B5EC;
-  border-bottom: 3px solid #00B5EC; */
-  background-color: #00B5EC;
-  color: white;
+  border-top: 3px solid #00B5EC;
+  border-bottom: 3px solid #00B5EC;
+  min-height: 200px;
   padding: 10px 10px;
 }
 .speaker h3 {
