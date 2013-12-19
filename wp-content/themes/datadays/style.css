@@ -265,8 +265,27 @@ h3 {
 }
 footer img {
   margin: auto auto;
+  max-width: 80px;
+}
+footer .support img {
+  max-width: 60px;
+}
+#colophon {
+    padding-bottom: 100px;
+}
+#colophon .row {
+  height: 250px;
+  
+}
+#colophon .footer-icon {
+  display: inline-block !important;
+  vertical-align: middle;
 }
 
+.logobox {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 0px 10px 0px;
+}
 .footerbackgroundimage {
     /* This image will be displayed fullscreen */
     background:url('img/footerbackground.png') no-repeat left bottom;
@@ -349,17 +368,20 @@ ul.navbar-nav{
 .speaker-pic {
   float: left;
   margin: 5px 5px 5px 0px;
+  border: 3px solid #00B5EC;
 }
-.speaker {
-  border-top: 7px solid #273582;
-  border-bottom: 7px solid #273582;
-  
-  outline: 5px solid white;
-  outline-offset: -5px;
-}
-
 .speaker p {
   clear: both;
+  /* border-top: 3px solid #00B5EC;
+  border-bottom: 3px solid #00B5EC; */
+  background-color: #00B5EC;
+  color: white;
+  padding: 10px 10px;
+}
+.speaker h3 {
+  border: none;
+  margin-bottom: 0px;
+  margin-top: 15px;
 }
 
 .nav-previous {

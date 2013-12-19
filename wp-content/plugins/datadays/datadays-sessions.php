@@ -189,6 +189,7 @@ function dd_sessions_time_box_content($post) {
 function dd_sessions_speaker_box_content($post) {
   wp_nonce_field( plugin_basename(__FILE__ ), 'dd_sessions_speaker_box_content_nonce' );
   $parents = array();
+  
   /*
   $parents = get_posts(
     array(
@@ -209,17 +210,20 @@ function dd_sessions_speaker_box_content($post) {
   
   $my_query = new WP_Query($args);
   if( $my_query->have_posts() ) {
-   
       $parents = $my_query->get_posts();
-    
   }
-  
+  $speaker = get_post_meta($post->ID, 'speaker', true);
+  $speaker = explode(';', $speaker);
   if (!empty($parents)) {
-    echo '<select name="parent_id" class="widefat">'; // !Important! Don't change the 'parent_id' name attribute.
+    $i = 0;
     foreach ($parents as $parent) {
-        printf( '<option value="%s"%s>%s</option>', esc_attr( $parent->ID ), selected( $parent->ID, $post->post_parent, false ), esc_html( $parent->post_title ) );
+      $selected = (in_array($parent->ID, $speaker)) ? 'checked' : '';
+      print '<div>';
+      printf( '<input type="checkbox" name="%s" value="%s" %s></input>', "speaker_" . $i, esc_attr( $parent->ID ), $selected);
+      print('<label for="speaker_' . $i . '"> ' . esc_html( $parent->post_title ) . '</label>');
+      print '</div>';
+      $i++;
     }
-    echo '</select>';
   }
   if (isset($_POST['speaker']) && $_POST['speaker'] != '') {
     update_post_meta($post->ID, 'speaker', $_POST['speaker']);
@@ -282,7 +286,7 @@ function dd_sessions_time_box_save($post_id) {
 function dd_sessions_speaker_box_save($post_id) {
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
 	  return;
-
+	  
 	if (array_key_exists('dd_sessions_speaker_box_content_nonce', $_POST) && 
 	    !wp_verify_nonce($_POST['dd_sessions_speaker_box_content_nonce'], plugin_basename(__FILE__))) {
 	    	die('bad nonce');
@@ -296,8 +300,13 @@ function dd_sessions_speaker_box_save($post_id) {
 		if (!current_user_can( 'edit_post', $post_id))
 		return;
 	}
-	$value = array_key_exists('speaker', $_POST) ? $_POST['speaker'] : false;
-	update_post_meta($post_id, 'speaker', $value);
+	$speakerstr = "";
+	foreach ($_POST as $key => $value) {
+  	if (strlen($key) > strlen('speaker') && substr($key, 0, 7) == "speaker") {
+    	$speakerstr .= $value . ';';
+  	}
+	}
+	update_post_meta($post_id, 'speaker', $speakerstr);
 }
 
 

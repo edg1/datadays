@@ -259,6 +259,11 @@ function dd_speakers_bio_box_save($post_id) {
       $result .= '</div>';
       //$result .= '<div class="speaker-details">';
       $result .= '<h3>' . $speaker->post_title . '</h3>';
+      $org = reset(wp_get_post_terms($speaker->ID, 'dd-speaker-category'));
+      if ($org) {
+        $result .= '<span>' . $org->name . '</span>';
+      }
+      
       $result .= '<p><span>' . get_post_meta($speaker->ID, 'bio', true) . '</span></p>';
       $result .= '</div>';
       //$result .= '</div>';
