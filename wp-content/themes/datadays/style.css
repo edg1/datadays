@@ -192,6 +192,17 @@ h3 {
   color: white;
 }
 
+.wpcf7-form-control .wpcf7-list-item {
+  display: block;
+}
+
+.wpcf7-form-control .wpcf7-list-item input {
+  float: left;
+}
+.wpcf7-form-control .wpcf7-list-item-label {
+  display: inline;
+}
+
 /* SESSIONS */
 
 .session {

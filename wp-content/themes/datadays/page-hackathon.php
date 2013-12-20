@@ -33,7 +33,7 @@ get_header(); ?>
   			
   		  
   		  
-  		  <button type="button" class="btn btn-default" data-href="hackathon-citadel">Take the challenge!</button>
+  		  <button type="button" class="btn btn-default" data-href="/hackathon-citadel">Take the challenge!</button>
   		  <button type="button" class="btn btn-default" data-href="http://www.citadelonthemove.eu/en-us/thehub/opendata.aspx">Get the data</button>
 			</div>
 		  <div class="col-md-4 hackathon hackathon-vkbo">
