@@ -262,7 +262,7 @@ function dd_speakers_bio_box_save($post_id) {
     ), $params ) );
 
     $result = '';
-    $speakers = query_posts(array('post_type' => 'dd-speaker', 'orderby' => 'menu_order', 'order' => 'DESC', 'posts_per_page' => $number));
+    $speakers = query_posts(array('post_type' => 'dd-speaker', 'orderby' => 'menu_order', 'order' => 'DESC', 'posts_per_page' => -1));
 
     $counter = 1;
     $result .= '<div class="speakers row">';

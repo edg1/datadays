@@ -93,6 +93,18 @@ h6,
 }
 */
 
+#hero-subtext {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  position: absolute;
+  display: block;
+  left: 10%;
+  margin-top: 10px;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+
+}
+
 body, html {
   font-family: 'Open Sans', sans-serif;
   width:100%;

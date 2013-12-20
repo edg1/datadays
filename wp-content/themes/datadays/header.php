@@ -64,6 +64,8 @@
 		<div id="header-image" class="hidden-xs">
 		<div class="middle">
 		<div id="hero-text"><div class="balloon">Join The <strong>Open Data</strong> Pioneers, practitioners, thinkers and researchers from <strong>across the world</strong> to unlock and advance the power of collaboration and <strong>Open Innovation</strong> in this joint conference by the Open Knowledge Foundation (<strong>OKFN</strong>), <strong>Citadel on the Move</strong> and Linked Organization of Local Authority ICT Societies (<strong>LOLA</strong>).</div></div>
+		<div id="hero-subtext"><div class="balloon">17/18/19 February 2014<br/>Bijloke, Gent</div></div>
+		
 		</div>
 		</div>
 		<?php endif; ?>

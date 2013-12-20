@@ -386,14 +386,13 @@ function dd_sessions($atts) {
 	
 	$output = '';
 	foreach ($overview as $day => $halls) {
-	  
 	  $output .= '<div class="row">';
   	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
     $output .= '</div>';
     $output .= '<div class="row session-halls">';
     
     // Shift plenary to first location
-    if (array_key_exists('Plenary', $halls)) {
+    if (array_key_exists('Plenary', $halls) && ($day != 'Day 3: Open World')) {
       $plenary = $halls['Plenary'];
       unset($halls['Plenary']);
       $halls = array('Plenary' => $plenary) + $halls;
@@ -412,7 +411,12 @@ function dd_sessions($atts) {
     
     foreach($halls as $hall => $sessions) {  
       
-  	  $colsize = ($hall == 'Plenary') ? 'col-md-12' : 'col-md-3 col-sm-6';
+  	  $colsize = 'col-md-3 col-sm-6';
+  	  if ($hall == 'Plenary') {
+  	    $colsize =  'col-md-12 clearfix';
+  	  } else if ($hall == 'Open World') {
+    	  $colsize = 'col-md-6 clearfix';
+  	  }
   	  $output .= '<div class="' . $colsize . ' session-hall-container">';
       $output .= '<div class="session session-hall">' . $hall . '</div>';
       
