@@ -386,6 +386,7 @@ function dd_sessions($atts) {
 	
 	$output = '';
 	foreach ($overview as $day => $halls) {
+	  print $day;
 	  $output .= '<div class="row">';
   	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
     $output .= '</div>';
