@@ -321,7 +321,7 @@ function dd_sessions($atts) {
   extract( shortcode_atts( array(
 		'day' => false,
 	), $atts, 'dd' ) );
-	
+	$day_slug = $day;
 	
 	// Getting the $days
 	$days = array();
@@ -386,14 +386,13 @@ function dd_sessions($atts) {
 	
 	$output = '';
 	foreach ($overview as $day => $halls) {
-	  print $day;
 	  $output .= '<div class="row">';
   	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
     $output .= '</div>';
     $output .= '<div class="row session-halls">';
-    
+
     // Shift plenary to first location
-    if (array_key_exists('Plenary', $halls) && ($day != 'Day 3: Open World')) {
+    if (array_key_exists('Plenary', $halls) && ($day_slug != 'open-world-2')) {
       $plenary = $halls['Plenary'];
       unset($halls['Plenary']);
       $halls = array('Plenary' => $plenary) + $halls;
