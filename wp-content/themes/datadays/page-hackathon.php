@@ -50,14 +50,14 @@ get_header(); ?>
 			</div>
 		  <div class="col-md-4 hackathon hackathon-idrops">
   			
-  			<h3>iDrops</h3>
-  			<p class="hackathon-short">Over 30 ideas offering solutions to specific poverty related issues were conceived during eight creative miniLABs across Flanders.  Hack For Good wants to turn these ideas into reality. We are asking digital developers, business developers, coders, programmers and hackers to pitch a plan to a panel of financiers on how to implement the ideas that they think are best. The best project will win EUR 10,000 to boost social innovation.</p> 
+  			<h3>Business Lounge</h3>
+  			<p class="hackathon-short">On the 18th of Februari the brightest and best open data start-ups will be invited to exhibit and pitch their business ideas at the Apps for Europe Business Lounge in Ghent, Belgium at DataDays 2014.<br/><br/>Where the sick were once treated, Open Data evengelists are now pampered. The building is a perfect blend of old and new. Set within the 13th century monastery, The Business Lounge will seek to boost the most viable startup propositions developed during the last year of hack events, innovation challenges and start up competitions. A Business Lounge programme that puts start-ups and developers in front of investors, experts and mentors to help them refine their business propositions. During this Business Lounge a winner is chosen to present his/her work at the International Business Lounge in Manchester.</p> 
 			  
-			  <div class="hackathon-logo"><img src="http://datadays.netslet.com/wp-content/uploads/2013/11/SIL_logo.png" alt="SIL_logo" width="150" class="alignnone img-responsive" /></div>
+			  <div class="hackathon-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/apps4eu.png" alt="Apps4EU" width="150" class="alignnone img-responsive" /></div>
   			
 			  
-			  <button type="button" class="btn btn-default" data-href="hackathon-idrops">Take the challenge!</button>
-			  <button type="button" class="btn btn-default" data-href="http://www.idrops.be/sil/ideeen-minilabs/">See the ideas</button>
+			  <button type="button" class="btn btn-default" data-href="hackathon-apps4eu">Take the challenge!</button>
+			  <button type="button" class="btn btn-default" data-href="hackathon-apps4eu-programme">See the programme</button>
 			</div>
 			</div>
 
