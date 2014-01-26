@@ -14,9 +14,18 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+      <div class="container">
 		  <div class="row">
-			<div class="col-md-6 hackathon hackathon-citadel">
+		  <br/>
+		  <div class="col-md-6 col-lg-6 col-md-push-6 col-lg-push6">
+		    <a href="http://mijnevent.be/nl/event/50971/data-days" class="btn btn-primary btn-block btn-lg">Register Now! ></a>
+		  </div>
+		  </div>
+
+		  
+		  
+		  <div class="row">
+			<div class="hackathon hackathon-citadel">
   			
   		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -25,10 +34,9 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 
 			</div>
-			<div class="col-md-6">
-			<div class="mijnevent"><iframe src="http://www.mijnevent.be/en/default/events/view/p/1/event-id/50971/event-slug/data-days?iframe=1" width="600" height="1500" frameBorder="0"></iframe>
-			</div>		
 			</div>
+      </div>
+			
 			</div>
     </main><!-- #main -->
 	</div><!-- #primary -->
