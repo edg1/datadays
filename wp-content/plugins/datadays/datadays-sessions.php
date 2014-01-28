@@ -386,9 +386,10 @@ function dd_sessions($atts) {
 	
 	$output = '';
 	foreach ($overview as $day => $halls) {
-	  $output .= '<div class="row">';
-  	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
-    $output .= '</div>';
+  $output .= '<div class="row container">';
+  $output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
+  $output .= '</div>';
+
 
 
     // Shift plenary to first location
@@ -417,10 +418,11 @@ function dd_sessions($atts) {
       
   	  $colsize = 'col-md-3 col-sm-6';
   	  if ($hall == 'Plenary') {
-  	    $colsize =  'col-md-12 pull-left';
+  	    $colsize =  'col-md-12';
   	  } else if ($hall == 'Open World') {
     	  $colsize = 'col-md-6 clearfix';
   	  }
+  	  
   	  $output .= '<div class="' . $colsize . ' session-hall-container">';
       $output .= '<div class="session session-hall">' . $hall . '</div>';
       
@@ -458,6 +460,7 @@ function dd_sessions($atts) {
   }
   	
   $output .= '</div>';
+  
   return $output;
 	
 }
