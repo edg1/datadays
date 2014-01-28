@@ -389,13 +389,17 @@ function dd_sessions($atts) {
 	  $output .= '<div class="row">';
   	$output .= '<div class="col-md-12 session session-day"><h3>' . $day . '</h3></div>';
     $output .= '</div>';
-    $output .= '<div class="row session-halls">';
+
 
     // Shift plenary to first location
-    if (array_key_exists('Plenary', $halls) && ($day_slug != 'open-world-2')) {
+    if (array_key_exists('Plenary', $halls)) {
       $plenary = $halls['Plenary'];
       unset($halls['Plenary']);
-      $halls = array('Plenary' => $plenary) + $halls;
+      if ($day_slug != 'open-world-2') {
+        $halls = array('Plenary' => $plenary) + $halls;
+      } else {
+        $halls = $halls + array('Plenary' => $plenary);
+      }
     }
 
     // Find earliest session of the day
@@ -424,7 +428,7 @@ function dd_sessions($atts) {
       $first = 'first';
       $previous = array('end' => $firstsession);
       foreach ($sessions as $session) {
-        $extra = ($session['title'] == 'Coffee' || $session['title'] == 'Lunch') ? 'mute' : '';
+        $extra = ($session['title'] == 'Coffee' || $session['title'] == 'Lunch' || $session['title'] == 'Walking dinner') ? 'mute' : '';
         // Create invalidated space
         if ($hall != 'Plenary' && ($previous['end'] != $session['start'])) {
           $spaceslots = calculate_slots($previous['end'], $session['start']);
