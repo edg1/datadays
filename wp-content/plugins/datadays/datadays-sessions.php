@@ -413,15 +413,18 @@ function dd_sessions($atts) {
       }
     }
     
-    
+    $output .= '<div class="row container">';
+    $rowcols = 0;
     foreach($halls as $hall => $sessions) {  
       
   	  $colsize = 'col-md-3 col-sm-6';
   	  if ($hall == 'Plenary') {
   	    $colsize =  'col-md-12';
+  	    $output .= '</div><div class="row container">';
   	  } else if ($hall == 'Open World') {
     	  $colsize = 'col-md-6 clearfix';
   	  }
+  	  
   	  
   	  $output .= '<div class="' . $colsize . ' session-hall-container">';
       $output .= '<div class="session session-hall">' . $hall . '</div>';
@@ -442,8 +445,8 @@ function dd_sessions($atts) {
           $output .= '<div class="session-button glyphicon glyphicon-play">&nbsp;</div>';
         }
         $output .= '<div class="session-time">' . $session['start'] . '</div>';
-        $title = (strlen($session['title']) > 73) ? substr($session['title'],0,70).'...' : $session['title'];
-        $output .= '<div class="session-title">' . $title . '</div>';   
+        //$title = (strlen($session['title']) > 73) ? substr($session['title'],0,70).'...' : $session['title'];
+        $output .= '<div class="session-title">' . $session['title'] . '</div>';   
         
         $output .= '</a>';
         if ($first != '')
@@ -452,9 +455,7 @@ function dd_sessions($atts) {
       }
       $output .= '</div>';
       $output .= '</div>';
-      if ($hall == 'Plenary') {
-  	    $output .= '</div>';
-  	  }   
+   
     }
     $output .= '</div>';
   }
