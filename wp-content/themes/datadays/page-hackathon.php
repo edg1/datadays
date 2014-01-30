@@ -56,7 +56,7 @@ get_header(); ?>
 			  <div class="hackathon-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/apps4eu.png" alt="Apps4EU" width="150" class="alignnone img-responsive" /></div>
   			
 			  
-			  <button type="button" class="btn btn-default" data-href="hackathon-apps4eu">Take the challenge!</button>
+			  <button type="button" class="btn btn-default" data-href="http://www.datadays.eu/take-the-appsforeurope-challenge/">Take the challenge!</button>
 			  <button type="button" class="btn btn-default" data-href="hackathon-apps4eu-programme">See the programme</button>
 			</div>
 			</div>
